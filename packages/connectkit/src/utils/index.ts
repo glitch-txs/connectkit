@@ -2,6 +2,12 @@ import { detect } from 'detect-browser';
 import React from 'react';
 import supportedConnectors from '../constants/supportedConnectors';
 
+declare global{
+  interface Window {
+    ethereum?: any
+  }
+}
+
 const truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
 
 const truncateEthAddress = (address?: string, separator: string = '••••') => {

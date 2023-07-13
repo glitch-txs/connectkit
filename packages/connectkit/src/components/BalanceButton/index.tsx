@@ -121,29 +121,6 @@ export const Balance: React.FC<BalanceProps> = ({ hideIcon, hideSymbol }) => {
           )}
         </motion.div>
       </AnimatePresence>
-      {/* <Container
-        style={{
-          position: 'absolute',
-          x: 'calc(-50% - 12px)',
-          y: '-50%',
-          left: '50%',
-          top: '50%',
-        }}
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: balance?.formatted !== undefined ? 1 : 0,
-        }}
-        transition={{
-          duration: balance && isInitial ? 0 : 0.4,
-          ease: [0.25, 1, 0.5, 1],
-        }}
-      >
-        {!hideIcon && <Chain id={chain?.id} />}
-        {nFormatter(Number(balance?.formatted))}
-        {!hideSymbol && ` ${balance?.symbol}`}
-      </Container> */}
     </div>
   );
 };

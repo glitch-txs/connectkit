@@ -8,7 +8,6 @@
 
 import { ReactNode } from 'react';
 import Logos from './../assets/logos';
-import { isCoinbaseWallet, isMetaMask } from './../utils';
 
 let supportedConnectors: {
   id: string;
@@ -31,7 +30,7 @@ let supportedConnectors: {
 }[] = [];
 
 if (typeof window != 'undefined') {
-  const { ethereum } = window;
+  const { ronin } = window;
 
   interface IDictionary {
     [index: string]: string;
@@ -39,194 +38,35 @@ if (typeof window != 'undefined') {
 
   supportedConnectors = [
     {
-      id: 'injected',
-      name: 'Browser Wallet',
-      shortName: 'Browser',
-      logos: {
-        default: <Logos.Injected />,
-        mobile: (
-          <div
-            style={{
-              padding: 5,
-              background: 'var(--ck-body-background-tertiary)',
-              borderRadius: '27%',
-              boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.02)',
-            }}
-          >
-            <div
-              style={{
-                transform: 'scale(0.75)',
-                position: 'relative',
-                width: '100%',
-              }}
-            >
-              <Logos.Injected />
-            </div>
-          </div>
-        ),
-        transparent: <Logos.Injected />,
-      },
-      scannable: false,
-      extensionIsInstalled: () => {
-        return Boolean(ethereum);
-      },
-    },
-    {
-      id: 'walletConnect',
-      name: 'Other Wallets',
-      shortName: 'Other',
+      id: 'roninWallet',
+      name: 'Ronin Wallet',
+      shortName: 'Ronin',
       logos: {
         default: <Logos.WalletConnect />,
-        mobile: (
-          <div
-            style={{
-              padding: 5,
-              background: 'var(--ck-body-background-secondary)',
-              borderRadius: '21%',
-              boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.02)',
-            }}
-          >
-            <Logos.OtherWallets />
-          </div>
-        ),
+        mobile: <Logos.WalletConnect background />,
         transparent: <Logos.WalletConnect background={false} />,
-        connectorButton: <Logos.OtherWallets />,
+        appIcon: <Logos.WalletConnect background={false} />,
+        connectorButton: <Logos.WalletConnect background={true} />,
         qrCode: <Logos.WalletConnect background={true} />,
-      },
-      logoBackground: 'var(--ck-brand-walletConnect)',
-      scannable: true,
-      defaultConnect: () => {},
-    },
-    {
-      id: 'walletConnectLegacy',
-      name: 'Other Wallets',
-      shortName: 'Other',
-      logos: {
-        default: <Logos.WalletConnectLegacy />,
-        mobile: (
-          <div
-            style={{
-              padding: 5,
-              background: 'var(--ck-body-background-secondary)',
-              borderRadius: '21%',
-              boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.02)',
-            }}
-          >
-            <Logos.OtherWallets />
-          </div>
-        ),
-        transparent: <Logos.WalletConnectLegacy background={false} />,
-        connectorButton: <Logos.OtherWallets />,
-        qrCode: <Logos.WalletConnectLegacy background={true} />,
-      },
-      logoBackground: 'var(--ck-brand-walletConnect)',
-      scannable: true,
-      defaultConnect: () => {},
-    },
-    {
-      id: 'metaMask',
-      name: 'MetaMask',
-      logos: {
-        default: <Logos.MetaMask background />,
-        mobile: <Logos.MetaMask background />,
-        transparent: (
-          <div
-            style={{
-              transform: 'scale(0.86)',
-              position: 'relative',
-              width: '100%',
-            }}
-          >
-            <Logos.MetaMask />
-          </div>
-        ),
-        connectorButton: (
-          <div
-            style={{
-              transform: 'scale(1.1)',
-            }}
-          >
-            <Logos.MetaMask />
-          </div>
-        ),
-      },
-      logoBackground:
-        'linear-gradient(0deg, var(--ck-brand-metamask-12), var(--ck-brand-metamask-11))',
-      scannable: false,
-      // defaultConnect:  () => {},
-      extensions: {
-        chrome:
-          'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
-        firefox:
-          'https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/',
-        brave:
-          'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
-        edge: 'https://microsoftedge.microsoft.com/addons/detail/metamask/ejbalbakoplchlghecdalmeeeajnimhm',
-      } as IDictionary,
-      appUrls: {
-        download: 'https://connect.family.co/v0/download/metamask',
-        website: 'https://metamask.io/download/',
-        android: 'https://play.google.com/store/apps/details?id=io.metamask',
-        ios: 'https://apps.apple.com/app/metamask/id1438144202',
-      } as IDictionary,
-      extensionIsInstalled: () => {
-        return isMetaMask();
-      },
-    },
-    {
-      id: 'coinbaseWallet',
-      name: 'Coinbase Wallet',
-      shortName: 'Coinbase',
-      logos: {
-        default: <Logos.Coinbase />,
-        mobile: <Logos.Coinbase background />,
-        transparent: <Logos.Coinbase background={false} />,
-        appIcon: <Logos.Coinbase background={false} />,
-        connectorButton: <Logos.Coinbase background={true} />,
-        qrCode: <Logos.Coinbase background={true} />,
       },
       logoBackground: 'var(--ck-brand-coinbaseWallet)',
       scannable: true,
       //defaultConnect: () => {},
       extensions: {
-        chrome:
-          'https://chrome.google.com/webstore/detail/coinbase-wallet-extension/hnfanknocfeofbddgcijnmhnfnkdnaad',
+        chrome: 'https://chrome.google.com/webstore/detail/ronin-wallet/fnjhmkhhmkbjkkabndcnnogagogbneec',
+        firefox: 'https://addons.mozilla.org/es/firefox/addon/ronin-wallet/',
+        edge: 'https://microsoftedge.microsoft.com/addons/detail/ronin-wallet/kjmoohlgokccodicjjfebfomlbljgfhk'
       } as IDictionary,
       appUrls: {
-        download: 'https://connect.family.co/v0/download/coinbasewallet',
-        website: 'https://www.coinbase.com/wallet/getting-started-extension',
-        android: 'https://play.google.com/store/apps/details?id=org.toshi',
-        ios: 'https://apps.apple.com/app/coinbase-wallet-store-crypto/id1278383455',
+        download: 'https://wallet.roninchain.com/',
+        website: 'https://wallet.roninchain.com/',
+        android: 'https://play.google.com/store/apps/details?id=com.skymavis.genesis',
+        ios: 'https://apps.apple.com/us/app/ronin-wallet/id1592675001',
       } as IDictionary,
       extensionIsInstalled: () => {
-        return isCoinbaseWallet();
+        return ronin
       },
-    },
-    {
-      id: 'safe',
-      name: 'Safe',
-      shortName: 'Safe',
-      logos: {
-        default: <Logos.GnosisSafe />,
-        mobile: <Logos.GnosisSafe background />,
-        transparent: <Logos.GnosisSafe background={false} />,
-        appIcon: <Logos.GnosisSafe background={false} />,
-        connectorButton: <Logos.GnosisSafe background={true} />,
-        qrCode: <Logos.GnosisSafe background={true} />,
-      },
-      logoBackground: 'var(--ck-brand-gnosisSafe)',
-      scannable: false,
-      //defaultConnect: () => {},
-      appUrls: {
-        download: 'https://connect.family.co/v0/download/safe',
-        website: 'https://safe.global/wallet',
-        android: 'https://play.google.com/store/apps/details?id=io.gnosis.safe',
-        ios: 'https://apps.apple.com/app/id1515759131',
-      } as IDictionary,
-      extensionIsInstalled: () => {
-        return false;
-      },
-    },
+    }
   ];
 }
 

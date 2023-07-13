@@ -1,3 +1,4 @@
+import { EIP1193Provider } from 'viem';
 import { Languages as Lang } from './localizations';
 export type Languages = Lang;
 
@@ -22,3 +23,12 @@ export type All = {
 
 export type { ConnectKitOptions } from './components/ConnectKit';
 export type { CustomAvatarProps } from './components/Common/Avatar';
+
+declare global{
+  interface Window {
+    ronin?: {
+      provider: EIP1193Provider,
+      roninEvent: EventTarget
+    }
+  }
+}
