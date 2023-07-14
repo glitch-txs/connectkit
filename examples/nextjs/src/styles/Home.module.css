@@ -6,3 +6,7 @@
   padding: 6rem;
   height: 100vh;
 }
+.main h1{
+  position: absolute;
+  top: 140px;
+}
