@@ -939,6 +939,11 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@rometools/cli-win32-x64@12.1.3":
+  version "12.1.3"
+  resolved "https://registry.npmjs.org/@rometools/cli-win32-x64/-/cli-win32-x64-12.1.3.tgz"
+  integrity sha512-yHSKYidqJMV9nADqg78GYA+cZ0hS1twANAjiFibQdXj9aGzD+s/IzIFEIi/U/OBLvWYg/SCw0QVozi2vTlKFDQ==
+
 "@rushstack/eslint-patch@^1.1.3":
   version "1.2.0"
 
@@ -2240,7 +2245,7 @@ concat-map@0.0.1:
     next "13.4.9"
     react "18.2.0"
     react-dom "18.2.0"
-    ronin-connectkit "^0.0.0"
+    ronin-connectkit "^0.0.1"
     ronin-connector "^0.0.6"
     typescript "5.1.6"
     viem "^1.2.14"
@@ -4491,8 +4496,20 @@ rollup@*, rollup@^1.20.0||^2.0.0, rollup@^2.0.0, rollup@^2.42.0, rollup@^2.67.1,
   optionalDependencies:
     fsevents "~2.3.2"
 
-ronin-connectkit@^0.0.1, "ronin-connectkit@file:C:\\Users\\Asus\\Desktop\\connectkit\\packages\\connectkit":
-  version "0.0.1"
+rome@12.1.3:
+  version "12.1.3"
+  resolved "https://registry.npmjs.org/rome/-/rome-12.1.3.tgz"
+  integrity sha512-e+ff72hxDpe/t5/Us7YRBVw3PBET7SeczTQNn6tvrWdrCaAw3qOukQQ+tDCkyFtS4yGsnhjrJbm43ctNbz27Yg==
+  optionalDependencies:
+    "@rometools/cli-darwin-arm64" "12.1.3"
+    "@rometools/cli-darwin-x64" "12.1.3"
+    "@rometools/cli-linux-arm64" "12.1.3"
+    "@rometools/cli-linux-x64" "12.1.3"
+    "@rometools/cli-win32-arm64" "12.1.3"
+    "@rometools/cli-win32-x64" "12.1.3"
+
+ronin-connectkit@^0.0.2, "ronin-connectkit@file:C:\\Users\\Asus\\Desktop\\connectkit\\packages\\connectkit":
+  version "0.0.2"
   resolved "file:packages/connectkit"
   dependencies:
     buffer "^6.0.3"
@@ -5059,8 +5076,13 @@ typedarray-to-buffer@3.1.5:
 typescript-plugin-styled-components@^2.0.0:
   version "2.0.0"
 
-typescript@^4.0, typescript@^4.9.5, typescript@>=2.4.0, "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", typescript@>=3.3.1, typescript@>=4.9.4, typescript@>=5.0.4:
+typescript@^4.0, typescript@>=2.4.0, "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", typescript@>=3.3.1, typescript@>=4.9.4, typescript@>=5.0.4:
   version "4.9.5"
+
+typescript@^5.1.6:
+  version "5.1.6"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-5.1.6.tgz"
+  integrity sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==
 
 typescript@>=5, typescript@5.1.6:
   version "5.1.6"
@@ -5152,7 +5174,7 @@ valtio@1.10.6:
     proxy-compare "2.5.1"
     use-sync-external-store "1.2.0"
 
-viem@^1.0.0, viem@^1.2.14, viem@>=0, viem@>=0.3.35:
+viem@^1.0.0, viem@^1.2.14, viem@>=0.3.35:
   version "1.2.14"
   resolved "https://registry.npmjs.org/viem/-/viem-1.2.14.tgz"
   integrity sha512-Hak+NGxdm+vRyt/cV8NbTlW1IRPKAmJBCx1SZZIc1uNVA/Rs6eN0Nh7mB8MbmA3FLJ0ymD/dSbB4MI9GGbGCgA==
@@ -5167,7 +5189,7 @@ viem@^1.0.0, viem@^1.2.14, viem@>=0, viem@>=0.3.35:
     isomorphic-ws "5.0.0"
     ws "8.12.0"
 
-viem@~0.3.18, viem@~0.3.19:
+viem@>=0, viem@~0.3.18, viem@~0.3.19:
   version "0.3.19"
   dependencies:
     "@adraffy/ens-normalize" "1.9.0"
@@ -5180,7 +5202,7 @@ viem@~0.3.18, viem@~0.3.19:
     isomorphic-ws "5.0.0"
     ws "8.12.0"
 
-wagmi@^1.0.0:
+wagmi@^1.0.0, wagmi@>=1:
   version "1.0.0"
   dependencies:
     "@tanstack/query-sync-storage-persister" "^4.27.1"
@@ -5190,7 +5212,7 @@ wagmi@^1.0.0:
     abitype "^0.8.2"
     use-sync-external-store "^1.2.0"
 
-wagmi@^1.3.8, wagmi@>=1:
+wagmi@^1.3.8:
   version "1.3.8"
   resolved "https://registry.npmjs.org/wagmi/-/wagmi-1.3.8.tgz"
   integrity sha512-RCfcE+Q+yhyfq7j5u7KQRz2KXUMAMexu0Y2kr8z81t4fmDlU5C+OEVQ6NFoUzAzEsJpznpQjZgsfpHKeFm17hQ==

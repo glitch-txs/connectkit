@@ -5,8 +5,7 @@
   "main": "packages/connectkit/src/index.ts",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "scripts": {
     "dev:connectkit": "yarn workspace connectkit run dev",

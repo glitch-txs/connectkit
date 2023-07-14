@@ -27,7 +27,7 @@ const config = createConfig(
         }
       })
     ]
-  }) as any
+  })
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
