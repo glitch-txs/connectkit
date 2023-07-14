@@ -139,7 +139,7 @@ const ChainSelectList = ({
 											</motion.div>
 										</ChainLogoSpinner>
 										<ChainIcon>
-											<Ronin style={{ transform:'scale(0.7)' }} />
+											<Ronin style={{ transform: "scale(0.7)" }} />
 										</ChainIcon>
 									</ChainLogoContainer>
 									{ch.name}

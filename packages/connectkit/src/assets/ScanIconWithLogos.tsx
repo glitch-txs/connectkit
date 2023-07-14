@@ -35,11 +35,11 @@ const ScanIconWithLogos: React.FC<{ logo?: React.ReactNode }> = () => {
 						d="M7 14.5C7 11.4624 9.46243 9 12.5 9H31.5C34.5376 9 37 11.4624 37 14.5V47H7V14.5Z"
 						fill="var(--ck-graphic-scaniconwithlogos-04)"
 					/>
-						<foreignObject x="13" y="21" width="18" height="18" rx="5">
-							<div style={{ overflow: "hidden", borderRadius: 5 }}>
-								<Ronin/>
-							</div>
-						</foreignObject>
+					<foreignObject x="13" y="21" width="18" height="18" rx="5">
+						<div style={{ overflow: "hidden", borderRadius: 5 }}>
+							<Ronin />
+						</div>
+					</foreignObject>
 					<path
 						d="M36 47V13.7143C36 11.1107 33.8893 9 31.2857 9H12.7143C10.1107 9 8 11.1107 8 13.7143V47"
 						stroke="url(#paint0_linear_924_12568)"

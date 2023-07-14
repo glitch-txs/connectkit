@@ -93,7 +93,7 @@ const Chain: React.FC<{
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.3 }}
 					>
-					<Ronin style={{ transform:'scale(0.7)' }} />
+						<Ronin style={{ transform: "scale(0.7)" }} />
 					</LogoContainer>
 				) : (
 					<LoadingContainer
