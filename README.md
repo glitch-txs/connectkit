@@ -20,7 +20,7 @@ pnpm add ronin-connectkit ronin-connector wagmi viem
 
 ## Configuration
 
-```ts
+```tsx
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
