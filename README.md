@@ -1,36 +1,21 @@
-# ConnectKit
-
-ConnectKit is a powerful [React](https://reactjs.org/) component library for connecting a wallet to your dApp. It supports the most popular connectors and chains out of the box and provides a beautiful, seamless experience.
-
-## Features
-
-- 💡 TypeScript Ready — Get types straight out of the box.
-- 🌱 Ecosystem Standards — Uses top libraries such as [wagmi](https://github.com/wagmi-dev/wagmi).
-- 🖥️ Simple UX — Give users a simple, attractive experience.
-- 🎨 Beautiful Themes — Predesigned themes or full customization.
-
-and much more...
-
 ## Install
-
-Get started with a ConnectKit + [wagmi](https://wagmi.sh/) + [viem](https://viem.sh) project by running one of the following in your terminal:
 
 #### npm
 
 ```sh
-npm i ronin-connectkit ronin-connector
+npm i ronin-connectkit ronin-connector wagmi viem
 ```
 
 #### yarn
 
 ```sh
-yarn add ronin-connectkit ronin-connector
+yarn add ronin-connectkit ronin-connector wagmi viem
 ```
 
 #### pnpm
 
 ```sh
-pnpm add ronin-connectkit ronin-connector
+pnpm add ronin-connectkit ronin-connector wagmi viem
 ```
 
 ## Configuration
