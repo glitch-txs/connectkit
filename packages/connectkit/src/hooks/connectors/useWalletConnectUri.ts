@@ -19,7 +19,6 @@ export function useWalletConnectUri(
   const [uri, setUri] = useState<string | undefined>(undefined);
 
   const connector: Connector = useWalletConnectConnector();
-  const isWalletConnectLegacy = connector?.id === 'walletConnectLegacy';
 
   const { isConnected } = useAccount();
   const { connectAsync } = useConnect();
@@ -29,30 +28,8 @@ export function useWalletConnectUri(
 
     async function handleMessage({ type, data }: any) {
       log('WC Message', type, data);
-      if (isWalletConnectLegacy) {
-        log('isWalletConnectLegacy');
-        if (type === 'connecting') {
-          const p = await connector.getProvider();
-          setUri(p.connector.uri);
-
-          // User rejected, regenerate QR code
-          p.connector.on('disconnect', () => {
-            log('User rejected, regenerate QR code');
-            connectWalletConnect(connector);
-          });
-        }
-      } else {
-        if (type === 'display_uri') {
-          setUri(data);
-        }
-        /*
-        // This has the URI as well, but we're probably better off using the one in the display_uri event
-        if (type === 'connecting') {
-          const p = await connector.getProvider();
-          const uri = p.signer.uri; 
-          setConnectorUri(uri);
-        }
-        */
+      if (type === 'display_uri') {
+        setUri(data.uri);
       }
     }
     async function handleChange(e: any) {
@@ -60,12 +37,6 @@ export function useWalletConnectUri(
     }
     async function handleDisconnect() {
       log('WC Disconnect');
-
-      if (connector) {
-        if (connector.options?.version === '1') {
-          connectWallet(connector);
-        }
-      }
     }
     async function handleConnect() {
       log('WC Connect');

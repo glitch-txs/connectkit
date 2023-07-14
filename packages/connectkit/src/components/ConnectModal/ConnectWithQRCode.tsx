@@ -39,11 +39,7 @@ const ConnectWithQRCode: React.FC<{
 
   const { connectors } = useConnect();
 
-  const { uri } = isWalletConnectConnector(id)
-    ? useWalletConnectUri()
-    : isCoinbaseWalletConnector(id)
-    ? useCoinbaseWalletUri()
-    : { uri: undefined };
+  const { uri } = useWalletConnectUri()
 
   const connector = connectors.find((c) => c.id === id);
   const connectorInfo = supportedConnectors.find((c) => c.id === id);

@@ -98,87 +98,11 @@ const getBrowserAppUri = (connectorId: string) => {
   }
 };
 
-const isMetaMask = () => {
+const isRonin = () => {
   if (typeof window === 'undefined') return false;
-
-  const { ethereum } = window;
-  if (!ethereum) return false;
-
-  const isMetaMask = Boolean(ethereum.isMetaMask);
-  if (!isMetaMask) return false;
-
-  const isBrave = Boolean(
-    ethereum.isBraveWallet //&& !ethereum._events && !ethereum._state
-  );
-  if (isBrave) return false;
-
-  const isDawn = Boolean(ethereum.isDawn);
-  if (isDawn) return false;
-
-  const isTokenary = Boolean(ethereum.isTokenary);
-  if (isTokenary) return false;
-
-  const isFrame = Boolean(ethereum.isFrame);
-  if (isFrame) return false;
-
-  const isRabby = Boolean(ethereum.isRabby);
-  if (isRabby) return false;
-
-  if (isPhantom()) return false;
-
-  return true;
+  return Boolean(window.ronin)
 };
 
-const isDawn = () => {
-  if (typeof window === 'undefined') return false;
-
-  const { ethereum } = window;
-  if (!ethereum) return false;
-
-  const isDawn = Boolean(ethereum.isDawn);
-  if (isDawn) return true;
-};
-
-const isCoinbaseWallet = () => {
-  if (typeof window === 'undefined') return false;
-  const { ethereum } = window;
-
-  return !!(
-    ethereum?.isCoinbaseWallet ||
-    (ethereum?.providers &&
-      ethereum?.providers.find((provider) => provider.isCoinbaseWallet))
-  );
-};
-
-const isFrame = () => {
-  if (typeof window === 'undefined') return false;
-  const { ethereum } = window;
-
-  return !!(
-    ethereum?.isFrame ||
-    (ethereum?.providers &&
-      ethereum?.providers.find((provider) => provider.isFrame))
-  );
-};
-
-const isPhantom = () => {
-  if (typeof window === 'undefined') return false;
-  const { phantom } = window as any;
-  const isPhantom = Boolean(phantom?.ethereum?.isPhantom);
-  if (isPhantom) return true;
-  return false;
-};
-
-const isRabby = () => {
-  if (typeof window === 'undefined') return false;
-  const { ethereum } = window;
-
-  return !!(
-    ethereum?.isRabby ||
-    (ethereum?.providers &&
-      ethereum?.providers.find((provider) => provider.isRabby))
-  );
-};
 
 type ReactChildArray = ReturnType<typeof React.Children.toArray>;
 function flattenChildren(children: React.ReactNode): ReactChildArray {
@@ -219,12 +143,7 @@ export {
   isAndroid,
   detectBrowser,
   detectOS,
+  isRonin,
   getWalletDownloadUri,
-  isMetaMask,
-  isDawn,
-  isCoinbaseWallet,
-  isFrame,
-  isPhantom,
-  isRabby,
   flattenChildren,
 };

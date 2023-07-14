@@ -27,14 +27,7 @@ export function useInjectedConnector() {
   return useConnector('injected');
 }
 export function useWalletConnectConnector() {
-  /*
-  options: {
-    qrcode: false,
-    // or
-    showQrModal: false,
-  }
-  */
-  return useConnector('walletConnect') ?? useConnector('walletConnectLegacy');
+  return useConnector('roninWallet')
 }
 export function useCoinbaseWalletConnector() {
   /*

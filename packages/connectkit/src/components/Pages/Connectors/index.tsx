@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { useContext, routes } from '../../ConnectKit';
 import supportedConnectors from '../../../constants/supportedConnectors';
 import {
-  isMetaMask,
-  isCoinbaseWallet,
   isWalletConnectConnector,
   isInjectedConnector,
   isMetaMaskConnector,
@@ -84,9 +82,7 @@ const Wallets: React.FC = () => {
 
     const needsInjectedWalletFallback =
       typeof window !== 'undefined' &&
-      ethereum &&
-      !isMetaMask() &&
-      !isCoinbaseWallet();
+      ethereum
     //!ethereum?.isBraveWallet; // TODO: Add this line when Brave is supported
 
     return needsInjectedWalletFallback;
@@ -148,8 +144,7 @@ const Wallets: React.FC = () => {
                   //disabled={!connector.ready}
                   onClick={() => {
                     if (
-                      isInjectedConnector(info.id) ||
-                      (isMetaMaskConnector(info.id) && isMetaMask())
+                      isInjectedConnector(info.id)
                     ) {
                       context.setRoute(routes.CONNECT);
                       context.setConnector(connector.id);
@@ -214,18 +209,7 @@ const Wallets: React.FC = () => {
 
               let name = info.name ?? connector.name;
               if (isWalletConnectConnector(info.id)) {
-                name =
-                  context.options?.walletConnectName ?? locales.otherWallets;
-              }
-
-              if (isInjectedConnector(info.id)) {
-                if (!shouldShowInjectedConnector()) return null;
-
-                const foundInjector = findInjectedConnectorInfo(connector.name);
-                if (foundInjector) {
-                  logos = foundInjector.logos;
-                  name = foundInjector.name;
-                }
+                name = context.options?.walletConnectName ?? locales.otherWallets;
               }
 
               let logo = logos.connectorButton ?? logos.default;
@@ -234,6 +218,7 @@ const Wallets: React.FC = () => {
                   logo = logos.appIcon;
                 }
               }
+              
               return (
                 <ConnectorButton
                   key={connector.id}
