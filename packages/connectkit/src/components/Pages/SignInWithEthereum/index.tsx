@@ -16,7 +16,7 @@ import { SIWEButton } from "../../Standard/SIWE"
 import { useSIWE } from "../../../siwe"
 
 import { TickIcon } from "../../../assets/icons"
-import Chains from "../../../assets/chains"
+import { Ronin } from "../../../assets/chains"
 import Avatar from "../../Common/Avatar"
 import { getAppIcon } from "../../../defaultConfig"
 
@@ -200,11 +200,7 @@ const SignInWithEthereum: React.FC = () => {
 						}}
 					>
 						<LogoContainer>
-							{favicon ? (
-								<LazyImage src={favicon} alt={"app"} />
-							) : (
-								<Chains.UnknownChain />
-							)}
+							{favicon ? <LazyImage src={favicon} alt={"app"} /> : <Ronin />}
 						</LogoContainer>
 					</motion.div>
 				</StatusGraphic>

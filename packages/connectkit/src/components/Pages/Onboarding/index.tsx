@@ -17,7 +17,7 @@ import {
 	ModalContent,
 	ModalH1,
 } from "../../Common/Modal/styles"
-import Logos from "../../../assets/logos"
+import { Ronin } from "../../../assets/logos"
 import wave from "../../../assets/wave"
 
 import Button from "../../Common/Button"
@@ -40,7 +40,7 @@ const Introduction: React.FC = () => {
 								<FloatWrapper>
 									<RotateWrapper>
 										<LogoGraphic>
-											<Logos.Coinbase background />
+											<Ronin />
 										</LogoGraphic>
 									</RotateWrapper>
 								</FloatWrapper>
@@ -53,7 +53,7 @@ const Introduction: React.FC = () => {
 								<FloatWrapper>
 									<RotateWrapper>
 										<LogoGraphic>
-											<Logos.MetaMask background />
+											<Ronin />
 										</LogoGraphic>
 									</RotateWrapper>
 								</FloatWrapper>
@@ -66,7 +66,7 @@ const Introduction: React.FC = () => {
 								<FloatWrapper>
 									<RotateWrapper>
 										<LogoGraphic>
-											<Logos.Trust />
+											<Ronin />
 										</LogoGraphic>
 									</RotateWrapper>
 								</FloatWrapper>
@@ -79,7 +79,7 @@ const Introduction: React.FC = () => {
 								<FloatWrapper>
 									<RotateWrapper>
 										<LogoGraphic>
-											<Logos.Argent />
+											<Ronin />
 										</LogoGraphic>
 									</RotateWrapper>
 								</FloatWrapper>
@@ -92,7 +92,7 @@ const Introduction: React.FC = () => {
 								<FloatWrapper>
 									<RotateWrapper>
 										<LogoGraphic>
-											<Logos.ImToken />
+											<Ronin />
 										</LogoGraphic>
 									</RotateWrapper>
 								</FloatWrapper>
