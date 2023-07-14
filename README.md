@@ -1,7 +1,3 @@
-<a href="https://docs.family.co/connectkit">
-  <img width="1080" alt="connectkit" src="https://user-images.githubusercontent.com/1930210/197782607-5903aba7-8e7f-4fde-b80a-80465d4ad54e.png">
-</a>
-
 # ConnectKit
 
 ConnectKit is a powerful [React](https://reactjs.org/) component library for connecting a wallet to your dApp. It supports the most popular connectors and chains out of the box and provides a beautiful, seamless experience.
@@ -15,26 +11,74 @@ ConnectKit is a powerful [React](https://reactjs.org/) component library for con
 
 and much more...
 
-## Quick Start
+## Install
 
 Get started with a ConnectKit + [wagmi](https://wagmi.sh/) + [viem](https://viem.sh) project by running one of the following in your terminal:
 
 #### npm
 
 ```sh
-npx create-react-app my-app --template cra-template-connectkit
+npm i ronin-connectkit ronin-connector
 ```
 
 #### yarn
 
 ```sh
-yarn create react-app my-app --template cra-template-connectkit
+yarn add ronin-connectkit ronin-connector
 ```
 
 #### pnpm
 
 ```sh
-pnpm dlx create-react-app ./my-app --template cra-template-connectkit
+pnpm add ronin-connectkit ronin-connector
+```
+
+## Configuration
+
+```ts
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+
+import { WagmiConfig, createConfig } from 'wagmi';
+import { ConnectKitProvider, getDefaultConfig } from 'ronin-connectkit';
+import { RoninConnector, saigon, ronin } from 'ronin-connector';
+
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID as string
+
+const config = createConfig(
+  getDefaultConfig({
+    appName: 'ConnectKit Next.js demo',
+    infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
+    alchemyId:  process.env.NEXT_PUBLIC_ALCHEMY_ID,
+    chains: [saigon],
+    connectors:[
+      new RoninConnector({
+        chains:[saigon],
+        options:{
+          projectId,
+          metadata:{
+            name: 'wagmi',
+            description: 'my wagmi app',
+            url: 'https://wagmi.sh',
+            icons: ['https://wagmi.sh/icon.png'],
+          },
+        }
+      })
+    ]
+  })
+);
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <WagmiConfig config={config}>
+      <ConnectKitProvider debugMode>
+        <Component {...pageProps} />
+      </ConnectKitProvider>
+    </WagmiConfig>
+  );
+}
+
+export default MyApp;
 ```
 
 ## Documentation
@@ -45,28 +89,12 @@ You can find the full ConnectKit documentation in the Family docs [here](https:/
 
 You can find the full API Reference in the Family docs [here](https://docs.family.co/connectkit/api-reference).
 
-## Examples
-
-There are various runnable examples included in this repository in the [examples folder](https://github.com/family/connectkit/tree/main/examples):
-
-- [Create React App Example (TypeScript)](https://github.com/family/connectkit/tree/main/examples/cra)
-- [Next.js Example (TypeScript)](https://github.com/family/connectkit/tree/main/examples/nextjs)
-- [Vite Example (TypeScript)](https://github.com/family/connectkit/tree/main/examples/vite)
-
-### Try in CodeSandbox
-
-You can try out some ConnectKit examples directly in your browser through CodeSandbox:
-
-- [Create React App Example (TypeScript)](https://codesandbox.io/s/5rhqm0?file=/README.md)
-- [Next.js (TypeScript)](https://codesandbox.io/s/qnvyqe?file=/README.md)
-- [Vite Example (TypeScript)](https://codesandbox.io/s/4jtssh?file=/README.md)
-
 ### Running Examples Locally
 
 Clone the ConnectKit project and install the necessary dependencies:
 
 ```sh
-$ git clone git@github.com:family/connectkit.git
+$ git clone https://github.com/glitch-txs/ronin-connectkit.git
 $ cd connectkit
 $ yarn install
 ```
