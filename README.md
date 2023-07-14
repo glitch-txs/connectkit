@@ -66,6 +66,22 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
+### For Next.js
+
+This should be on next.config.js file
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  webpack: config => {
+    config.resolve.fallback = { fs: false, net: false, tls: false };
+    return config;
+  },
+};
+
+module.exports = nextConfig;
+```
+
 ## Documentation
 
 You can find the full ConnectKit documentation in the Family docs [here](https://docs.family.co/connectkit).
