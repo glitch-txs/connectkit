@@ -5,7 +5,7 @@ import {
   PublicClient,
   WebSocketPublicClient,
 } from 'wagmi';
-import { Chain, mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
+import { Chain } from 'wagmi/chains';
 
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { infuraProvider } from 'wagmi/providers/infura';
@@ -17,8 +17,6 @@ let globalAppIcon: string;
 
 export const getAppName = () => globalAppName;
 export const getAppIcon = () => globalAppIcon;
-
-const defaultChains = [mainnet, polygon, optimism, arbitrum];
 
 type DefaultConfigProps = {
   appName: string;
@@ -38,7 +36,7 @@ type DefaultConfigProps = {
 
 type ConnectKitClientProps = {
   autoConnect?: boolean;
-  connectors?: Connector[];
+  connectors: Connector[];
   publicClient: PublicClient;
   webSocketPublicClient?: WebSocketPublicClient;
 };
@@ -82,8 +80,7 @@ const defaultConfig = ({
 
   const connectKitClient: ConnectKitClientProps = {
     autoConnect,
-    connectors:
-      connectors,
+    connectors,
     publicClient: publicClient ?? configuredPublicClient,
     webSocketPublicClient: enableWebSocketPublicClient // Removed by default, breaks if used in Next.js – "unhandledRejection: Error: could not detect network"
       ? webSocketPublicClient ?? configuredWebSocketPublicClient
