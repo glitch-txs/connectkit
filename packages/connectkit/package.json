@@ -1,6 +1,6 @@
 {
   "name": "ronin-connectkit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Family",
   "homepage": "https://docs.family.co/connectkit",
   "license": "BSD-2-Clause license",
@@ -64,6 +64,7 @@
   "resolutions": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "wagmi": "^1.0.0"
+    "wagmi": "^1.0.0",
+    "@walletconnect/ethereum-provider": "^2.9.0"
   }
 }

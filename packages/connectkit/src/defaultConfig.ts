@@ -88,7 +88,7 @@ const defaultConfig = ({
 			: undefined,
 	}
 
-	return { ...connectKitClient }
+	return { ...connectKitClient } as any
 }
 
 export default defaultConfig
