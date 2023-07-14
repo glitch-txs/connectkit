@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import styled from "./../../../styles/styled"
 import { css, keyframes } from "styled-components"
+import { CSSProps } from "../../../types"
 
 export const QRCodeContainer = styled(motion.div)`
   z-index: 3;
@@ -131,7 +132,7 @@ export const LogoIcon = styled(motion.div)<{ $wcLogo?: boolean }>`
     height: 100%;
   }
 
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$wcLogo
 			? css`
           width: 29%;

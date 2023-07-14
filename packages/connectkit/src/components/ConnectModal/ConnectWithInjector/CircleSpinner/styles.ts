@@ -1,6 +1,7 @@
 import styled from "./../../../../styles/styled"
 import { css } from "styled-components"
 import { motion } from "framer-motion"
+import { CSSProps } from "../../../../types"
 
 export const LogoContainer = styled(motion.div)`
   z-index: 4;
@@ -30,7 +31,7 @@ export const Logo = styled(motion.div)<{ $small?: boolean }>`
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    ${(props) =>
+    ${(props: CSSProps) =>
 			props.$small &&
 			css`
         width: 60%;

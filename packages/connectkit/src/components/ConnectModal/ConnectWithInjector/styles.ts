@@ -3,6 +3,7 @@ import { css, keyframes } from "styled-components"
 import { motion } from "framer-motion"
 
 import { ModalContent } from "../../Common/Modal/styles"
+import { CSSProps } from "../../../types"
 
 export const Content = styled(motion.div)`
   display: flex;
@@ -57,7 +58,7 @@ export const ConnectingAnimation = styled(motion.div)<{
     inset: -5px;
     opacity: 0;
     background: var(--ck-body-color-danger);
-    ${(props) =>
+    ${(props: CSSProps) =>
 			props.$circle &&
 			css`
         border-radius: 50%;
@@ -65,7 +66,7 @@ export const ConnectingAnimation = styled(motion.div)<{
         box-shadow: inset 0 0 0 3.5px var(--ck-body-color-danger);
       `}
   }
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$shake &&
 		css`
       animation: ${shakeKeyframes} 220ms ease-out both;

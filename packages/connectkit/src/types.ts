@@ -2,6 +2,15 @@ import { EIP1193Provider } from "viem"
 import { Languages as Lang } from "./localizations"
 export type Languages = Lang
 
+export type CSSProps = {
+  [key: string]: string | {
+		[key: string]: string 
+	},
+	$customTheme:{
+		[key: string]: string 
+	}
+}
+
 export type Theme =
 	| "auto"
 	| "web95"
@@ -12,7 +21,7 @@ export type Theme =
 	| "rounded"
 	| "nouns"
 export type Mode = "light" | "dark" | "auto"
-export type CustomTheme = any // TODO: define type
+export type CustomTheme = unknown // TODO: define type
 
 export type All = {
 	theme?: Theme

@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import styled from "./../../../styles/styled"
 import { css } from "styled-components"
 import defaultTheme from "../../../constants/defaultTheme"
+import { CSSProps } from "../../../types"
 
 const imageHeight = 208
 
@@ -53,7 +54,7 @@ export const Slide = styled(motion.div)<{ $active?: boolean }>`
   /* will-change: transform, opacity; */
   transition: 400ms 50ms cubic-bezier(0.16, 1, 0.3, 1);
   transition-property: transform, opacity;
-  ${(props) =>
+  ${(props: CSSProps) =>
 		!props.$active &&
 		css`
       pointer-events: none;
@@ -126,7 +127,7 @@ export const Dot = styled.button<{ $active: boolean }>`
     background: var(--ck-accent-color, var(--ck-body-color));
     transition: transform 200ms ease, opacity 180ms ease;
   }
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$active
 			? css`
           cursor: default;

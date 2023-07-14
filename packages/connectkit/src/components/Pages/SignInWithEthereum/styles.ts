@@ -174,7 +174,7 @@ export const StatusGraphic = styled(motion.div)<{ $connected?: boolean }>`
     transform: scaleX(0);
   }
 
-  ${({ $connected }) =>
+  ${({ $connected }: { $connected: boolean }) =>
 		$connected &&
 		css`
       &:before {

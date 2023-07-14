@@ -27,9 +27,9 @@ type DefaultConfigProps = {
 	alchemyId?: string
 	infuraId?: string
 	chains: Chain[]
-	connectors: any
-	publicClient?: any
-	webSocketPublicClient?: any
+	connectors: Connector[]
+	publicClient?: PublicClient
+	webSocketPublicClient?: WebSocketPublicClient
 	enableWebSocketPublicClient?: boolean
 	stallTimeout?: number
 }
@@ -81,9 +81,9 @@ const defaultConfig = ({
 	const connectKitClient: ConnectKitClientProps = {
 		autoConnect,
 		connectors,
-		publicClient: publicClient ?? configuredPublicClient,
+		publicClient: (publicClient ?? configuredPublicClient) as PublicClient,
 		webSocketPublicClient: enableWebSocketPublicClient // Removed by default, breaks if used in Next.js – "unhandledRejection: Error: could not detect network"
-			? webSocketPublicClient ?? configuredWebSocketPublicClient
+			? (webSocketPublicClient ?? configuredWebSocketPublicClient) as WebSocketPublicClient
 			: undefined,
 	}
 

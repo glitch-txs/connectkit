@@ -2,6 +2,7 @@ import styled from "./../../../styles/styled"
 import { keyframes } from "styled-components"
 import { motion } from "framer-motion"
 import defaultTheme from "../../../constants/defaultTheme"
+import { CSSProps } from "../../../types"
 
 export const ErrorMessage = styled(motion.div)`
   z-index: -1;
@@ -150,10 +151,10 @@ export const ModalH1 = styled(motion.h1)<{
 }>`
   margin: 0;
   padding: 0;
-  line-height: ${(props) => (props.$small ? 20 : 22)}px;
-  font-size: ${(props) => (props.$small ? 17 : 19)}px;
+  line-height: ${(props: CSSProps) => (props.$small ? 20 : 22)}px;
+  font-size: ${(props: CSSProps) => (props.$small ? 17 : 19)}px;
   font-weight: var(--ck-modal-h1-font-weight, 600);
-  color: ${(props) => {
+  color: ${(props: CSSProps) => {
 		if (props.$error) return "var(--ck-body-color-danger)"
 		if (props.$valid) return "var(--ck-body-color-valid)"
 		return "var(--ck-body-color)"
@@ -205,12 +206,12 @@ export const BackgroundOverlay = styled(motion.div)<{
   right: 0;
   bottom: 0;
   background: var(--ck-overlay-background, rgba(71, 88, 107, 0.24));
-  backdrop-filter: ${(props) =>
+  backdrop-filter: ${(props: CSSProps) =>
 		props.$blur
 			? `blur(${props.$blur}px)`
 			: "var(--ck-overlay-backdrop-filter, none)"};
   opacity: 0;
-  animation: ${(props) => (props.$active ? FadeIn : FadeOut)} 150ms ease-out
+  animation: ${(props: CSSProps) => (props.$active ? FadeIn : FadeOut)} 150ms ease-out
     both;
 `
 

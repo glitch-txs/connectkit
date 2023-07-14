@@ -4,6 +4,7 @@ import { css } from "styled-components"
 
 import CopyToClipboardIcon from "./CopyToClipboardIcon"
 import Button from "../Button"
+import { CSSProps } from "../../../types"
 
 const Container = styled.div<{ $disabled?: boolean }>`
   --color: var(--ck-copytoclipboard-stroke);
@@ -15,7 +16,7 @@ const Container = styled.div<{ $disabled?: boolean }>`
   align-items: center;
   justify-content: center;
 
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$disabled
 			? css`
           cursor: not-allowed;

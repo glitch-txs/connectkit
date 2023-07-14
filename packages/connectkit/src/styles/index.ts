@@ -1,7 +1,7 @@
 import styled from "./styled"
 import { css } from "styled-components"
 import { motion } from "framer-motion"
-import { CustomTheme } from "../types"
+import { CSSProps, CustomTheme } from "../types"
 import { hexToP3 } from "../utils/p3"
 
 import predefinedThemes from "./themes"
@@ -203,7 +203,7 @@ export const ResetContainer = styled(motion.div)<{
 }>`
   ${themes.default}
 
-  ${(props) => {
+  ${(props: CSSProps) => {
 		switch (props.$useTheme) {
 			case "web95":
 				mode = "light"
@@ -246,7 +246,7 @@ export const ResetContainer = styled(motion.div)<{
 		}
 	}}
 
-  ${(props) => {
+  ${() => {
 		switch (mode) {
 			case "light":
 				return globalsLight
@@ -263,11 +263,11 @@ export const ResetContainer = styled(motion.div)<{
 	}}
 
 
-  ${(props) => {
+  ${(props: CSSProps) => {
 		if (
 			props.$customTheme &&
 			props.$customTheme["--ck-accent-color"] &&
-			["light", "dark", "auto", "", undefined].includes(props.$useTheme)
+			["light", "dark", "auto", "", undefined].includes(props.$useTheme as string)
 		) {
 			const accentColor = props.$customTheme["--ck-accent-color"]
 			const accentTextColor =

@@ -1,11 +1,3 @@
-/**
- *
- * TODO:
- * Move this into a structure to allow usage of WAGMI
- * or keep this file isolated for the other useful config data
- *
- */
-
 import { ReactNode } from "react"
 import Logos from "./../assets/logos"
 
@@ -25,8 +17,8 @@ let supportedConnectors: {
 	scannable?: boolean
 	extensions?: { [key: string]: string }
 	appUrls?: { [key: string]: string }
-	extensionIsInstalled?: () => any
-	defaultConnect?: () => any
+	extensionIsInstalled?: () => boolean,
+	defaultConnect: boolean
 }[] = []
 
 if (typeof window != "undefined") {
@@ -66,8 +58,9 @@ if (typeof window != "undefined") {
 				ios: "https://apps.apple.com/us/app/ronin-wallet/id1592675001",
 			} as IDictionary,
 			extensionIsInstalled: () => {
-				return ronin
+				return Boolean(ronin)
 			},
+			defaultConnect: false
 		},
 	]
 }

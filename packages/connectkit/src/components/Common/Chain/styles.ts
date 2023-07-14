@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import styled from "./../../../styles/styled"
 import { css, keyframes } from "styled-components"
+import { CSSProps } from "../../../types"
 
 type ChainContainerProps = {
 	size?: number | string
@@ -10,23 +11,23 @@ type ChainContainerProps = {
 export const ChainContainer = styled.div<ChainContainerProps>`
   --bg: transparent;
   --color: #333;
-  ${(props) =>
+  ${(props: CSSProps) =>
 		typeof props.size === "string"
 			? css`
           --width: ${props.size};
           --height: ${props.size};
         `
 			: css`
-          --width: ${props.size >= 0 ? `${props.size}px` : "24px"};
-          --height: ${props.size >= 0 ? `${props.size}px` : "24px"};
+          --width: ${Number(props.size) >= 0 ? `${props.size}px` : "24px"};
+          --height: ${Number(props.size) >= 0 ? `${props.size}px` : "24px"};
         `};
-  ${(props) =>
+  ${(props: CSSProps) =>
 		typeof props.radius === "string"
 			? css`
           --radius: ${props.radius};
         `
 			: css`
-          --radius: ${props.radius >= 0 ? `${props.radius}px` : "24px"};
+          --radius: ${Number(props.radius) >= 0 ? `${props.radius}px` : "24px"};
         `};
   display: block;
   position: relative;

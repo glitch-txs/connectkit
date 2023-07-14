@@ -1,6 +1,7 @@
 import styled from "./../../../styles/styled"
 import { css } from "styled-components"
 import { motion } from "framer-motion"
+import { CSSProps } from "../../../types"
 
 function addressToNumber(address: string) {
 	return (
@@ -24,9 +25,9 @@ export const EnsAvatar = styled(motion.div)<{
   position: relative;
   overflow: hidden;
   margin: 0;
-  border-radius: ${(props) => `${props.$radius}px`};
-  width: ${(props) => `${props.$size}px`};
-  height: ${(props) => `${props.$size}px`};
+  border-radius: ${(props: CSSProps) => `${props.$radius}px`};
+  width: ${(props: CSSProps) => `${props.$size}px`};
+  height: ${(props: CSSProps) => `${props.$size}px`};
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
   &:before {
     content: '';
@@ -36,9 +37,9 @@ export const EnsAvatar = styled(motion.div)<{
     border-radius: inherit;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02);
   }
-  ${(props) => {
+  ${(props: CSSProps) => {
 		if (props.$seed) {
-			const id = Math.ceil(addressToNumber(props.$seed) * 8)
+			const id = Math.ceil(addressToNumber(props.$seed as string) * 8)
 			const ensColor = `0${id === 0 ? 1 : id}` // No zero ID in ENS color list.. 🤷‍♀️
 			return css`
         background: var(--ck-ens-${ensColor}-start);
@@ -57,7 +58,7 @@ export const ImageContainer = styled(motion.img)<{ $loaded: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
-  opacity: ${(props) => (props.$loaded ? 1 : 0)};
+  opacity: ${(props: CSSProps) => (props.$loaded ? 1 : 0)};
   will-change: opacity; // Needed for Safari
   transition: opacity 500ms ease;
   transform: scale(1.01); // fixes background color bleeding

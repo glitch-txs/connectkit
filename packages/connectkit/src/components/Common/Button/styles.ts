@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import styled from "./../../../styles/styled"
 import { css } from "styled-components"
 import defaultTheme from "../../../constants/defaultTheme"
+import { CSSProps } from "../../../types"
 
 export const SpinnerContainer = styled(motion.div)`
   position: absolute;
@@ -61,7 +62,7 @@ export const ButtonContainer = styled.button<{
 	$variant?: "primary" | "secondary" | "tertiary"
 }>`
 
-  ${({ disabled }) =>
+  ${({ disabled }: { disabled: boolean }) =>
 		disabled &&
 		css`
       cursor: not-allowed;
@@ -71,7 +72,7 @@ export const ButtonContainer = styled.button<{
       }
     `}
 
-  ${({ $variant }) => {
+  ${({ $variant }: { $variant: string }) => {
 		if ($variant === "primary") {
 			return css`
         --color: var(--ck-primary-button-color, var(--ck-body-color));
@@ -278,7 +279,7 @@ export const IconContainer = styled(motion.div)<{ $rounded?: boolean }>`
   &:last-child {
     margin-right: 0;
   }
-  ${(props) => {
+  ${(props: CSSProps) => {
 		return (
 			props.$rounded &&
 			css`

@@ -17,6 +17,7 @@ import Chain from "../Chain"
 import useLocales from "../../../hooks/useLocales"
 
 import Logos from "../../../assets/chains"
+import { CSSProps } from "../../../types"
 
 const Container = styled(motion.div)``
 
@@ -87,7 +88,7 @@ const SwitchChainButton = styled(motion.button)`
     display: block;
   }
 
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.disabled
 			? css`
           width: auto;

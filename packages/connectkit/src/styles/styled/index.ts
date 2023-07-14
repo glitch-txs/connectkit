@@ -10,4 +10,5 @@
  */
 
 import styled from "styled-components"
+//@ts-ignore - no idea what's going on xD
 export default typeof styled.div === "function" ? styled : styled["default"]

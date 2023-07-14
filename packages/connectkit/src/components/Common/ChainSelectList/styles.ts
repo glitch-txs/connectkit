@@ -3,6 +3,7 @@ import styled from "./../../../styles/styled"
 import { css } from "styled-components"
 
 import defaultTheme from "../../../constants/defaultTheme"
+import { CSSProps } from "../../../types"
 
 export const SwitchNetworksContainer = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ export const ChainIcon = styled(motion.div)<{ $empty?: boolean }>`
     width: 100%;
     height: auto;
   }
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$empty &&
 		css`
       display: flex;
@@ -175,7 +176,7 @@ export const ChainButton = styled(motion.button)<{
       opacity: 1;
     }
   }
-  ${(props) =>
+  ${(props : CSSProps) =>
 		props.$variant === "secondary" &&
 		css`
       padding: 12px 4px;

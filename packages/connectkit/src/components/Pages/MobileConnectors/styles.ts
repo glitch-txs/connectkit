@@ -1,10 +1,11 @@
 import { css, keyframes } from "styled-components"
 import styled from "./../../../styles/styled"
+import { CSSProps } from "../../../types"
 
 export const WalletItem = styled.div<{ $waiting?: boolean }>`
   text-align: center;
   transition: opacity 100ms ease;
-  opacity: ${(props) => (props.$waiting ? 0.4 : 1)};
+  opacity: ${(props: CSSProps) => (props.$waiting ? 0.4 : 1)};
 `
 export const WalletIcon = styled.div<{ $outline?: boolean }>`
   z-index: 9;
@@ -14,7 +15,7 @@ export const WalletIcon = styled.div<{ $outline?: boolean }>`
   width: 60px;
   height: 60px;
   overflow: hidden;
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$outline &&
 		`
   &:before {
@@ -52,7 +53,7 @@ export const WalletList = styled.div<{ $disabled?: boolean }>`
   margin: 0 -10px -20px;
   padding: 4px 0 0;
   transition: opacity 300ms ease;
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$disabled &&
 		css`
       pointer-events: none;

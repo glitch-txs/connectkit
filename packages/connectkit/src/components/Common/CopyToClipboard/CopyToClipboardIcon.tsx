@@ -3,6 +3,7 @@ import styled from "./../../../styles/styled"
 import { motion } from "framer-motion"
 
 import { CopyToClipboardIcon as Icon } from "../../../assets/icons"
+import { CSSProps } from "../../../types"
 
 const IconContainer = styled(motion.div)<{ $clipboard?: boolean }>`
   transition: all 220ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -33,7 +34,7 @@ const IconContainer = styled(motion.div)<{ $clipboard?: boolean }>`
     stroke: var(--bg);
     transform: translate(11.75px, 10px) rotate(90deg) scale(0.6);
   }
-  ${(props) =>
+  ${(props: CSSProps) =>
 		props.$clipboard
 			? css`
           --color: var(--ck-focus-color) !important;
