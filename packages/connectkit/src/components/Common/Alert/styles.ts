@@ -1,6 +1,6 @@
-import styled from './../../../styles/styled';
-import { motion } from 'framer-motion';
-import defaultTheme from '../../../constants/defaultTheme';
+import styled from "./../../../styles/styled"
+import { motion } from "framer-motion"
+import defaultTheme from "../../../constants/defaultTheme"
 
 export const AlertContainer = styled(motion.div)`
   display: flex;
@@ -28,7 +28,7 @@ export const AlertContainer = styled(motion.div)`
     border-radius: 24px;
     text-align: center;
   }
-`;
+`
 
 export const IconContainer = styled(motion.div)`
   width: 24px;
@@ -41,4 +41,4 @@ export const IconContainer = styled(motion.div)`
     width: 100%;
     height: auto;
   }
-`;
+`

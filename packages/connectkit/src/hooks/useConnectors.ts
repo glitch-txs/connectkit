@@ -1,17 +1,17 @@
-import { Connector, useConnect } from 'wagmi';
+import { Connector, useConnect } from "wagmi"
 
 export function useConnectors() {
-  const { connectors } = useConnect();
-  return connectors;
+	const { connectors } = useConnect()
+	return connectors
 }
 
 export function useConnector(id: string) {
-  const connectors = useConnectors();
-  return connectors.find((c) => c.id === id) as Connector;
+	const connectors = useConnectors()
+	return connectors.find((c) => c.id === id) as Connector
 }
 
 export function useInjectedConnector() {
-  /*
+	/*
   options: {
     shimDisconnect: true,
     name: (
@@ -24,26 +24,26 @@ export function useInjectedConnector() {
       })`,
   }
   */
-  return useConnector('injected');
+	return useConnector("injected")
 }
 export function useWalletConnectConnector() {
-  return useConnector('roninWallet')
+	return useConnector("roninWallet")
 }
 export function useCoinbaseWalletConnector() {
-  /*
+	/*
   options: {
     headlessMode: true,
   }
   */
-  return useConnector('coinbaseWallet');
+	return useConnector("coinbaseWallet")
 }
 export function useMetaMaskConnector() {
-  /*
+	/*
   options: {
     shimDisconnect: true,
     shimChainChangedDisconnect: true,
     UNSTABLE_shimOnConnectSelectAccount: true,
   }
   */
-  return useConnector('metaMask');
+	return useConnector("metaMask")
 }

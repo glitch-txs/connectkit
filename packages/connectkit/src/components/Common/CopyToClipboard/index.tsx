@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styled from './../../../styles/styled';
-import { css } from 'styled-components';
+import React, { useState } from "react"
+import styled from "./../../../styles/styled"
+import { css } from "styled-components"
 
-import CopyToClipboardIcon from './CopyToClipboardIcon';
-import Button from '../Button';
+import CopyToClipboardIcon from "./CopyToClipboardIcon"
+import Button from "../Button"
 
 const Container = styled.div<{ $disabled?: boolean }>`
   --color: var(--ck-copytoclipboard-stroke);
@@ -16,17 +16,17 @@ const Container = styled.div<{ $disabled?: boolean }>`
   justify-content: center;
 
   ${(props) =>
-    props.$disabled
-      ? css`
+		props.$disabled
+			? css`
           cursor: not-allowed;
           opacity: 0.4;
         `
-      : css`
+			: css`
           &:hover {
             --color: var(--ck-body-color-muted);
           }
         `}
-`;
+`
 const OffsetContainer = styled.div`
   display: block;
   position: relative;
@@ -39,24 +39,24 @@ const OffsetContainer = styled.div`
     margin: 0;
     margin-left: 4px;
   }
-`;
+`
 
 const CopyToClipboard: React.FC<{
-  string?: string;
-  children?: React.ReactNode;
-  variant?: 'button';
+	string?: string
+	children?: React.ReactNode
+	variant?: "button"
 }> = ({ string, children, variant }) => {
-  const [clipboard, setClipboard] = useState(false);
+	const [clipboard, setClipboard] = useState(false)
 
-  let timeout: any;
-  const onCopy = () => {
-    if (!string) return;
-    const str = string.trim();
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(str);
-    } else {
-      // Fallback copy to clipboard if necessary
-      /*
+	let timeout: any
+	const onCopy = () => {
+		if (!string) return
+		const str = string.trim()
+		if (navigator.clipboard) {
+			navigator.clipboard.writeText(str)
+		} else {
+			// Fallback copy to clipboard if necessary
+			/*
       const el = document.createElement('textarea');
       el.value = str;
       document.body.appendChild(el);
@@ -64,31 +64,31 @@ const CopyToClipboard: React.FC<{
       document.execCommand('copy');
       document.body.removeChild(el);
       */
-    }
-    setClipboard(true);
-    clearTimeout(timeout);
-    timeout = setTimeout(() => setClipboard(false), 1000);
-  };
+		}
+		setClipboard(true)
+		clearTimeout(timeout)
+		timeout = setTimeout(() => setClipboard(false), 1000)
+	}
 
-  if (variant === 'button')
-    return (
-      <Button
-        disabled={!string}
-        onClick={onCopy}
-        icon={<CopyToClipboardIcon copied={clipboard} />}
-      >
-        {children}
-      </Button>
-    );
+	if (variant === "button")
+		return (
+			<Button
+				disabled={!string}
+				onClick={onCopy}
+				icon={<CopyToClipboardIcon copied={clipboard} />}
+			>
+				{children}
+			</Button>
+		)
 
-  return (
-    <Container onClick={onCopy} $disabled={!string}>
-      <OffsetContainer>
-        {children}
-        <CopyToClipboardIcon copied={clipboard} small />
-      </OffsetContainer>
-    </Container>
-  );
-};
+	return (
+		<Container onClick={onCopy} $disabled={!string}>
+			<OffsetContainer>
+				{children}
+				<CopyToClipboardIcon copied={clipboard} small />
+			</OffsetContainer>
+		</Container>
+	)
+}
 
-export default CopyToClipboard;
+export default CopyToClipboard

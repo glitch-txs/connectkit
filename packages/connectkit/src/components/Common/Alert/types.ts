@@ -1,4 +1,4 @@
 export type AlertProps = {
-  children?: React.ReactNode;
-  icon?: React.ReactNode;
-};
+	children?: React.ReactNode
+	icon?: React.ReactNode
+}

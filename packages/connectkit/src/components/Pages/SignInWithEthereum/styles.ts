@@ -1,16 +1,16 @@
-import { motion } from 'framer-motion';
-import styled from './../../../styles/styled';
-import { css, keyframes } from 'styled-components';
-import defaultTheme from '../../../constants/defaultTheme';
+import { motion } from "framer-motion"
+import styled from "./../../../styles/styled"
+import { css, keyframes } from "styled-components"
+import defaultTheme from "../../../constants/defaultTheme"
 
 const spinKeyframes = keyframes`
   from{ transform: rotate(0deg); }
   to{   transform: rotate(360deg); }
-`;
+`
 const lineKeyframes = keyframes`
   from{ background-position: 0 0; }
   to{ background-position: 100% 0; }
-`;
+`
 
 export const ContentContainer = styled.div`
   @media only screen and (max-width: ${defaultTheme.mobileWidth}px) {
@@ -20,7 +20,7 @@ export const ContentContainer = styled.div`
     box-shadow: var(--ck-tertiary-box-shadow, none);
     background: var(--ck-body-background-tertiary);
   }
-`;
+`
 
 export const LogoContainer = styled(motion.div)`
   z-index: 2;
@@ -45,7 +45,7 @@ export const LogoContainer = styled(motion.div)`
     width: 64px;
     height: 64px;
   }
-`;
+`
 
 export const StatusIcon = styled(motion.div)`
   z-index: 2;
@@ -94,7 +94,7 @@ export const StatusIcon = styled(motion.div)`
       transform: scale(1.1);
     }
   }
-`;
+`
 
 export const StatusGraphicBgSvg = styled(motion.svg)`
   display: block;
@@ -109,7 +109,7 @@ export const StatusGraphicBgSvg = styled(motion.svg)`
   @media only screen and (max-width: ${defaultTheme.mobileWidth}px) {
     display: none;
   }
-`;
+`
 
 export const StatusGraphic = styled(motion.div)<{ $connected?: boolean }>`
   --border-color: var(--ck-siwe-border, var(--ck-body-divider));
@@ -175,8 +175,8 @@ export const StatusGraphic = styled(motion.div)<{ $connected?: boolean }>`
   }
 
   ${({ $connected }) =>
-    $connected &&
-    css`
+		$connected &&
+		css`
       &:before {
         opacity: 0;
       }
@@ -214,4 +214,4 @@ export const StatusGraphic = styled(motion.div)<{ $connected?: boolean }>`
         }
       }
     `};
-`;
+`

@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { routes, useContext } from './../../ConnectKit';
+import React, { useEffect, useState } from "react"
+import { routes, useContext } from "./../../ConnectKit"
 
-import { useNetwork } from 'wagmi';
+import { useNetwork } from "wagmi"
 
-import { flattenChildren, isMobile } from './../../../utils';
+import { flattenChildren, isMobile } from "./../../../utils"
 
-import defaultTheme from './../../../constants/defaultTheme';
+import defaultTheme from "./../../../constants/defaultTheme"
 
-import styled from './../../../styles/styled';
-import { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import styled from "./../../../styles/styled"
+import { css } from "styled-components"
+import { motion } from "framer-motion"
 
-import Tooltip from '../Tooltip';
-import ChainSelectDropdown from '../ChainSelectDropdown';
-import Chain from '../Chain';
-import useLocales from '../../../hooks/useLocales';
+import Tooltip from "../Tooltip"
+import ChainSelectDropdown from "../ChainSelectDropdown"
+import Chain from "../Chain"
+import useLocales from "../../../hooks/useLocales"
 
-import Logos from '../../../assets/chains';
+import Logos from "../../../assets/chains"
 
-const Container = styled(motion.div)``;
+const Container = styled(motion.div)``
 
 const SwitchChainButton = styled(motion.button)`
   --color: var(
@@ -88,18 +88,17 @@ const SwitchChainButton = styled(motion.button)`
   }
 
   ${(props) =>
-    props.disabled
-      ? css`
+		props.disabled
+			? css`
           width: auto;
           padding: 3px;
           position: relative;
           left: -22px;
         `
-      : css`
+			: css`
           cursor: pointer;
 
-          @media only screen and (min-width: ${defaultTheme.mobileWidth +
-            1}px) {
+          @media only screen and (min-width: ${defaultTheme.mobileWidth + 1}px) {
             &:hover,
             &:focus-visible {
               color: var(--hover-color);
@@ -113,77 +112,77 @@ const SwitchChainButton = styled(motion.button)`
             }
           }
         `}
-`;
+`
 
 const ChevronDown = ({ ...props }) => (
-  <svg
-    aria-hidden="true"
-    width="11"
-    height="6"
-    viewBox="0 0 11 6"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      d="M1.5 1L5.5 5L9.5 1"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+	<svg
+		aria-hidden="true"
+		width="11"
+		height="6"
+		viewBox="0 0 11 6"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		{...props}
+	>
+		<path
+			d="M1.5 1L5.5 5L9.5 1"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+	</svg>
+)
 
 const ChainSelector: React.FC = () => {
-  const context = useContext();
-  const [isOpen, setIsOpen] = useState(false);
-  const { chain, chains } = useNetwork();
+	const context = useContext()
+	const [isOpen, setIsOpen] = useState(false)
+	const { chain, chains } = useNetwork()
 
-  const locales = useLocales({
-    CHAIN: chain?.name,
-  });
+	const locales = useLocales({
+		CHAIN: chain?.name,
+	})
 
-  const mobile = isMobile() || window?.innerWidth < defaultTheme.mobileWidth;
+	const mobile = isMobile() || window?.innerWidth < defaultTheme.mobileWidth
 
-  useEffect(() => {
-    if (!context.open) setIsOpen(false);
-  }, [context.open]);
+	useEffect(() => {
+		if (!context.open) setIsOpen(false)
+	}, [context.open])
 
-  const disabled = chains.length <= 1;
+	const disabled = chains.length <= 1
 
-  return (
-    <>
-      <Container>
-        <ChainSelectDropdown
-          offsetX={-12}
-          open={!mobile && isOpen}
-          onClose={() => setIsOpen(false)}
-        >
-          <SwitchChainButton
-            aria-label={flattenChildren(locales.switchNetworks).toString()}
-            disabled={disabled}
-            onClick={() => {
-              if (mobile) {
-                context.setRoute(routes.SWITCHNETWORKS);
-              } else {
-                setIsOpen(!isOpen);
-              }
-            }}
-          >
-            {disabled ? (
-              <Tooltip message={locales.chainNetwork} xOffset={-6} delay={0.01}>
-                <Chain id={chain?.id} unsupported={chain?.unsupported} />
-              </Tooltip>
-            ) : (
-              <Chain id={chain?.id} unsupported={chain?.unsupported} />
-            )}
-            {!disabled && <ChevronDown style={{ top: 1, left: -3 }} />}
-          </SwitchChainButton>
-        </ChainSelectDropdown>
-      </Container>
-    </>
-  );
-};
+	return (
+		<>
+			<Container>
+				<ChainSelectDropdown
+					offsetX={-12}
+					open={!mobile && isOpen}
+					onClose={() => setIsOpen(false)}
+				>
+					<SwitchChainButton
+						aria-label={flattenChildren(locales.switchNetworks).toString()}
+						disabled={disabled}
+						onClick={() => {
+							if (mobile) {
+								context.setRoute(routes.SWITCHNETWORKS)
+							} else {
+								setIsOpen(!isOpen)
+							}
+						}}
+					>
+						{disabled ? (
+							<Tooltip message={locales.chainNetwork} xOffset={-6} delay={0.01}>
+								<Chain id={chain?.id} unsupported={chain?.unsupported} />
+							</Tooltip>
+						) : (
+							<Chain id={chain?.id} unsupported={chain?.unsupported} />
+						)}
+						{!disabled && <ChevronDown style={{ top: 1, left: -3 }} />}
+					</SwitchChainButton>
+				</ChainSelectDropdown>
+			</Container>
+		</>
+	)
+}
 
-export default ChainSelector;
+export default ChainSelector

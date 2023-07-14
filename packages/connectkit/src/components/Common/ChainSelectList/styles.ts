@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import styled from './../../../styles/styled';
-import { css } from 'styled-components';
+import { motion } from "framer-motion"
+import styled from "./../../../styles/styled"
+import { css } from "styled-components"
 
-import defaultTheme from '../../../constants/defaultTheme';
+import defaultTheme from "../../../constants/defaultTheme"
 
 export const SwitchNetworksContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const SwitchNetworksContainer = styled.div`
   @media only screen and (max-width: ${defaultTheme.mobileWidth}px) {
     flex-direction: column-reverse;
   }
-`;
+`
 
 export const ChainIcon = styled(motion.div)<{ $empty?: boolean }>`
   display: block;
@@ -32,8 +32,8 @@ export const ChainIcon = styled(motion.div)<{ $empty?: boolean }>`
     height: auto;
   }
   ${(props) =>
-    props.$empty &&
-    css`
+		props.$empty &&
+		css`
       display: flex;
       align-items: center;
       justify-content: center;
@@ -49,10 +49,10 @@ export const ChainIcon = styled(motion.div)<{ $empty?: boolean }>`
     width: 32px;
     height: 32px;
   }
-`;
+`
 export const ChainLogoContainer = styled(motion.div)`
   position: relative;
-`;
+`
 export const ChainLogoSpinner = styled(motion.div)`
   position: absolute;
   inset: -6px;
@@ -73,7 +73,7 @@ export const ChainLogoSpinner = styled(motion.div)`
       transform: rotate(360deg);
     }
   }
-`;
+`
 export const ChainButtonContainer = styled.div`
   position: relative;
   margin: -8px -8px;
@@ -87,7 +87,7 @@ export const ChainButtonContainer = styled.div`
     box-shadow: inset 0 16px 8px -12px var(--background, var(--ck-body-background)),
       inset 0 -16px 8px -12px var(--background, var(--ck-body-background));
   }
-`;
+`
 export const ChainButtons = styled(motion.div)`
   padding: 8px;
   overflow-x: hidden;
@@ -105,9 +105,9 @@ export const ChainButtons = styled(motion.div)`
     margin: 2px -2px 0;
     max-height: 60vh;
   }
-`;
+`
 export const ChainButton = styled(motion.button)<{
-  $variant?: 'primary' | 'secondary';
+	$variant?: "primary" | "secondary"
 }>`
   appearance: none;
   cursor: pointer;
@@ -176,8 +176,8 @@ export const ChainButton = styled(motion.button)<{
     }
   }
   ${(props) =>
-    props.$variant === 'secondary' &&
-    css`
+		props.$variant === "secondary" &&
+		css`
       padding: 12px 4px;
       margin: 0 0 8px;
       &:last-child {
@@ -190,7 +190,7 @@ export const ChainButton = styled(motion.button)<{
         opacity: 0.1;
       }
     `}
-`;
+`
 export const ChainButtonStatus = styled(motion.div)`
   position: absolute;
   top: 0;
@@ -213,7 +213,7 @@ export const ChainButtonStatus = styled(motion.div)`
     font-size: 17px;
     padding: 0;
   }
-`;
+`
 export const ChainButtonBg = styled(motion.div)`
   position: absolute;
   z-index: -1;
@@ -225,4 +225,4 @@ export const ChainButtonBg = styled(motion.div)`
   @media only screen and (max-width: ${defaultTheme.mobileWidth}px) {
     inset: 0 var(--ck-dropdown-active-inset, -8px);
   }
-`;
+`

@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import styled from './../../../styles/styled';
-import { css } from 'styled-components';
-import defaultTheme from '../../../constants/defaultTheme';
+import { motion } from "framer-motion"
+import styled from "./../../../styles/styled"
+import { css } from "styled-components"
+import defaultTheme from "../../../constants/defaultTheme"
 
-const imageHeight = 208;
+const imageHeight = 208
 
 export const ImageContainer = styled.div`
   pointer-events: none;
@@ -19,8 +19,8 @@ export const ImageContainer = styled.div`
   @media only screen and (max-width: ${defaultTheme.mobileWidth}px) {
     display: none;
   }
-`;
-export const ImageContainerInner = styled(motion.div)``;
+`
+export const ImageContainerInner = styled(motion.div)``
 
 export const MobileImageContainer = styled.div`
   pointer-events: none;
@@ -36,11 +36,11 @@ export const MobileImageContainer = styled.div`
   @media only screen and (max-width: ${defaultTheme.mobileWidth}px) {
     display: flex;
   }
-`;
+`
 
 export const Slides = styled.div`
   position: relative;
-`;
+`
 
 export const Slide = styled(motion.div)<{ $active?: boolean }>`
   scroll-snap-type: x mandatory;
@@ -54,8 +54,8 @@ export const Slide = styled(motion.div)<{ $active?: boolean }>`
   transition: 400ms 50ms cubic-bezier(0.16, 1, 0.3, 1);
   transition-property: transform, opacity;
   ${(props) =>
-    !props.$active &&
-    css`
+		!props.$active &&
+		css`
       pointer-events: none;
       position: absolute;
       opacity: 0;
@@ -63,7 +63,7 @@ export const Slide = styled(motion.div)<{ $active?: boolean }>`
       transition-duration: 300ms;
       transition-delay: 0ms;
     `}
-`;
+`
 export const Slider = styled.div`
   --background: var(--ck-body-background-secondary);
   --background-transparent: var(--ck-body-background-transparent, transparent);
@@ -95,7 +95,7 @@ export const Slider = styled.div`
       scroll-snap-align: start;
     }
   }
-`;
+`
 
 export const Dots = styled.div`
   position: relative;
@@ -103,7 +103,7 @@ export const Dots = styled.div`
   display: flex;
   justify-content: center;
   pointer-events: auto;
-`;
+`
 export const Dot = styled.button<{ $active: boolean }>`
   display: flex;
   align-items: center;
@@ -127,15 +127,15 @@ export const Dot = styled.button<{ $active: boolean }>`
     transition: transform 200ms ease, opacity 180ms ease;
   }
   ${(props) =>
-    props.$active
-      ? css`
+		props.$active
+			? css`
           cursor: default;
           &:before {
             opacity: 1;
           }
         `
-      : !props.disabled &&
-        css`
+			: !props.disabled &&
+			  css`
           cursor: pointer;
           &:hover:before {
             transform: scaleY(3.5);
@@ -143,4 +143,4 @@ export const Dot = styled.button<{ $active: boolean }>`
           &:active:before {
           }
         `}
-`;
+`

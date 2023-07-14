@@ -1,158 +1,153 @@
-import React, { useState } from 'react';
-import { routes, useContext } from '../ConnectKit';
+import React, { useState } from "react"
+import { routes, useContext } from "../ConnectKit"
 
-import supportedConnectors from '../../constants/supportedConnectors';
-import { useConnect } from '../../hooks/useConnect';
-import { useWalletConnectModal } from '../../hooks/useWalletConnectModal';
-
-import {
-  detectBrowser,
-  isWalletConnectConnector,
-  isCoinbaseWalletConnector,
-} from '../../utils';
+import supportedConnectors from "../../constants/supportedConnectors"
+import { useConnect } from "../../hooks/useConnect"
+import { useWalletConnectModal } from "../../hooks/useWalletConnectModal"
 
 import {
-  PageContent,
-  ModalContent,
-  ModalHeading,
-} from '../Common/Modal/styles';
-import { OrDivider } from '../Common/Modal';
+	detectBrowser,
+	isWalletConnectConnector,
+	isCoinbaseWalletConnector,
+} from "../../utils"
 
-import CustomQRCode from '../Common/CustomQRCode';
-import Button from '../Common/Button';
-import Alert from '../Common/Alert';
-import ScanIconWithLogos from '../../assets/ScanIconWithLogos';
-import { ExternalLinkIcon } from '../../assets/icons';
-import CopyToClipboard from '../Common/CopyToClipboard';
-import useLocales from '../../hooks/useLocales';
+import { PageContent, ModalContent, ModalHeading } from "../Common/Modal/styles"
+import { OrDivider } from "../Common/Modal"
 
-import { useWalletConnectUri } from '../../hooks/connectors/useWalletConnectUri';
-import { useCoinbaseWalletUri } from '../../hooks/connectors/useCoinbaseWalletUri';
+import CustomQRCode from "../Common/CustomQRCode"
+import Button from "../Common/Button"
+import Alert from "../Common/Alert"
+import ScanIconWithLogos from "../../assets/ScanIconWithLogos"
+import { ExternalLinkIcon } from "../../assets/icons"
+import CopyToClipboard from "../Common/CopyToClipboard"
+import useLocales from "../../hooks/useLocales"
+
+import { useWalletConnectUri } from "../../hooks/connectors/useWalletConnectUri"
+import { useCoinbaseWalletUri } from "../../hooks/connectors/useCoinbaseWalletUri"
 
 const ConnectWithQRCode: React.FC<{
-  connectorId: string;
-  switchConnectMethod: (id?: string) => void;
+	connectorId: string
+	switchConnectMethod: (id?: string) => void
 }> = ({ connectorId }) => {
-  const context = useContext();
+	const context = useContext()
 
-  const [id] = useState(connectorId);
+	const [id] = useState(connectorId)
 
-  const { connectors } = useConnect();
+	const { connectors } = useConnect()
 
-  const { uri } = useWalletConnectUri()
+	const { uri } = useWalletConnectUri()
 
-  const connector = connectors.find((c) => c.id === id);
-  const connectorInfo = supportedConnectors.find((c) => c.id === id);
+	const connector = connectors.find((c) => c.id === id)
+	const connectorInfo = supportedConnectors.find((c) => c.id === id)
 
-  const locales = useLocales({
-    CONNECTORNAME: connector?.name,
-  });
+	const locales = useLocales({
+		CONNECTORNAME: connector?.name,
+	})
 
-  const { open: openW3M, isOpen: isOpenW3M } = useWalletConnectModal();
+	const { open: openW3M, isOpen: isOpenW3M } = useWalletConnectModal()
 
-  if (!connector) return <>Connector not found</>;
+	if (!connector) return <>Connector not found</>
 
-  const browser = detectBrowser();
-  const extensionUrl = connectorInfo?.extensions
-    ? connectorInfo.extensions[browser]
-    : undefined;
+	const browser = detectBrowser()
+	const extensionUrl = connectorInfo?.extensions
+		? connectorInfo.extensions[browser]
+		: undefined
 
-  const hasApps =
-    connectorInfo?.appUrls && Object.keys(connectorInfo?.appUrls).length !== 0;
+	const hasApps =
+		connectorInfo?.appUrls && Object.keys(connectorInfo?.appUrls).length !== 0
 
-  const suggestedExtension = connectorInfo?.extensions
-    ? {
-        name: Object.keys(connectorInfo?.extensions)[0],
-        label:
-          Object.keys(connectorInfo?.extensions)[0].charAt(0).toUpperCase() +
-          Object.keys(connectorInfo?.extensions)[0].slice(1), // Capitalise first letter, but this might be better suited as a lookup table
-        url: connectorInfo?.extensions[
-          Object.keys(connectorInfo?.extensions)[0]
-        ],
-      }
-    : undefined;
+	const suggestedExtension = connectorInfo?.extensions
+		? {
+				name: Object.keys(connectorInfo?.extensions)[0],
+				label:
+					Object.keys(connectorInfo?.extensions)[0].charAt(0).toUpperCase() +
+					Object.keys(connectorInfo?.extensions)[0].slice(1), // Capitalise first letter, but this might be better suited as a lookup table
+				url: connectorInfo?.extensions[
+					Object.keys(connectorInfo?.extensions)[0]
+				],
+		  }
+		: undefined
 
-  const hasExtensionInstalled =
-    connectorInfo?.extensionIsInstalled &&
-    connectorInfo?.extensionIsInstalled();
+	const hasExtensionInstalled =
+		connectorInfo?.extensionIsInstalled && connectorInfo?.extensionIsInstalled()
 
-  if (!connectorInfo?.scannable)
-    return (
-      <PageContent>
-        <ModalHeading>Invalid State</ModalHeading>
-        <ModalContent>
-          <Alert>
-            {connectorInfo?.name} does not have it's own QR Code to scan. This
-            state should never happen
-          </Alert>
-        </ModalContent>
-      </PageContent>
-    );
+	if (!connectorInfo?.scannable)
+		return (
+			<PageContent>
+				<ModalHeading>Invalid State</ModalHeading>
+				<ModalContent>
+					<Alert>
+						{connectorInfo?.name} does not have it's own QR Code to scan. This
+						state should never happen
+					</Alert>
+				</ModalContent>
+			</PageContent>
+		)
 
-  const showAdditionalOptions = isWalletConnectConnector(connectorId);
+	const showAdditionalOptions = isWalletConnectConnector(connectorId)
 
-  return (
-    <PageContent>
-      <ModalContent style={{ paddingBottom: 8, gap: 14 }}>
-        <CustomQRCode
-          value={uri}
-          image={connectorInfo?.logos.qrCode}
-          imageBackground={connectorInfo?.logoBackground}
-          tooltipMessage={
-            isWalletConnectConnector(connectorId) ? (
-              <>
-                <ScanIconWithLogos />
-                <span>{locales.scanScreen_tooltip_walletConnect}</span>
-              </>
-            ) : (
-              <>
-                <ScanIconWithLogos
-                  logo={connectorInfo?.logos.connectorButton}
-                />
-                <span>{locales.scanScreen_tooltip_default}</span>
-              </>
-            )
-          }
-        />
-        {showAdditionalOptions ? (
-          <OrDivider />
-        ) : (
-          hasApps && <OrDivider>{locales.dontHaveTheApp}</OrDivider>
-        )}
-      </ModalContent>
+	return (
+		<PageContent>
+			<ModalContent style={{ paddingBottom: 8, gap: 14 }}>
+				<CustomQRCode
+					value={uri}
+					image={connectorInfo?.logos.qrCode}
+					imageBackground={connectorInfo?.logoBackground}
+					tooltipMessage={
+						isWalletConnectConnector(connectorId) ? (
+							<>
+								<ScanIconWithLogos />
+								<span>{locales.scanScreen_tooltip_walletConnect}</span>
+							</>
+						) : (
+							<>
+								<ScanIconWithLogos
+									logo={connectorInfo?.logos.connectorButton}
+								/>
+								<span>{locales.scanScreen_tooltip_default}</span>
+							</>
+						)
+					}
+				/>
+				{showAdditionalOptions ? (
+					<OrDivider />
+				) : (
+					hasApps && <OrDivider>{locales.dontHaveTheApp}</OrDivider>
+				)}
+			</ModalContent>
 
-      {showAdditionalOptions && ( // for walletConnect
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 14,
-          }}
-        >
-          {context.options?.walletConnectCTA !== 'modal' && (
-            <CopyToClipboard variant="button" string={uri}>
-              {context.options?.walletConnectCTA === 'link'
-                ? locales.copyToClipboard
-                : locales.copyCode}
-            </CopyToClipboard>
-          )}
-          {context.options?.walletConnectCTA !== 'link' && (
-            <Button
-              icon={<ExternalLinkIcon />}
-              onClick={openW3M}
-              disabled={isOpenW3M}
-              waiting={isOpenW3M}
-            >
-              {context.options?.walletConnectCTA === 'modal'
-                ? locales.useWalletConnectModal
-                : locales.useModal}
-            </Button>
-          )}
-        </div>
-      )}
+			{showAdditionalOptions && ( // for walletConnect
+				<div
+					style={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						gap: 14,
+					}}
+				>
+					{context.options?.walletConnectCTA !== "modal" && (
+						<CopyToClipboard variant="button" string={uri}>
+							{context.options?.walletConnectCTA === "link"
+								? locales.copyToClipboard
+								: locales.copyCode}
+						</CopyToClipboard>
+					)}
+					{context.options?.walletConnectCTA !== "link" && (
+						<Button
+							icon={<ExternalLinkIcon />}
+							onClick={openW3M}
+							disabled={isOpenW3M}
+							waiting={isOpenW3M}
+						>
+							{context.options?.walletConnectCTA === "modal"
+								? locales.useWalletConnectModal
+								: locales.useModal}
+						</Button>
+					)}
+				</div>
+			)}
 
-      {/*
+			{/*
       {hasExtensionInstalled && ( // Run the extension
         <Button
           icon={connectorInfo?.logos.default}
@@ -170,13 +165,13 @@ const ConnectWithQRCode: React.FC<{
       )}
       */}
 
-      {hasApps && (
-        <>
-          <Button
-            onClick={() => {
-              context.setRoute(routes.DOWNLOAD);
-            }}
-            /*
+			{hasApps && (
+				<>
+					<Button
+						onClick={() => {
+							context.setRoute(routes.DOWNLOAD)
+						}}
+						/*
             icon={
               <div style={{ background: connectorInfo?.logoBackground }}>
                 {connectorInfo?.logos.default}
@@ -184,13 +179,13 @@ const ConnectWithQRCode: React.FC<{
             }
             roundedIcon
             */
-            download
-          >
-            {locales.getWalletName}
-          </Button>
-        </>
-      )}
-      {/*
+						download
+					>
+						{locales.getWalletName}
+					</Button>
+				</>
+			)}
+			{/*
         {suggestedExtension && (
           <Button
             href={suggestedExtension?.url}
@@ -200,8 +195,8 @@ const ConnectWithQRCode: React.FC<{
           </Button>
         }
         */}
-    </PageContent>
-  );
-};
+		</PageContent>
+	)
+}
 
-export default ConnectWithQRCode;
+export default ConnectWithQRCode

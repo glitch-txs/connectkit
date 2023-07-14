@@ -1,5 +1,5 @@
-import { roninWallet } from './connectors/ronin';
+import { roninWallet } from "./connectors/ronin"
 
 export const getWallets = () => {
-  return [roninWallet()];
-};
+	return [roninWallet()]
+}

@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import styled from './../../../styles/styled';
-import { css } from 'styled-components';
-import defaultTheme from '../../../constants/defaultTheme';
+import { motion } from "framer-motion"
+import styled from "./../../../styles/styled"
+import { css } from "styled-components"
+import defaultTheme from "../../../constants/defaultTheme"
 
 export const SpinnerContainer = styled(motion.div)`
   position: absolute;
@@ -11,7 +11,7 @@ export const SpinnerContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const Arrow = styled.svg`
   --x: -3px;
@@ -27,27 +27,27 @@ export const Arrow = styled.svg`
   transform: translateX(var(--x, -3px));
   color: var(--ck-secondary-button-color, var(--ck-body-color));
   opacity: 0.4;
-`;
-export const ArrowChevron = styled.path``;
+`
+export const ArrowChevron = styled.path``
 export const ArrowLine = styled.line`
   transition: inherit;
   transition-property: transform;
   transform-origin: 90% 50%;
   transform: scaleX(0.1);
-`;
+`
 export const DownloadArrow = styled.div`
   display: inline-block;
   vertical-align: middle;
   position: relative;
   margin-right: 6px;
   color: var(--ck-secondary-button-color, var(--ck-body-color));
-`;
+`
 export const DownloadArrowInner = styled.div`
   transform: rotate(90deg);
   ${Arrow} {
     margin: 0 auto;
   }
-`;
+`
 
 export const ButtonContainerInner = styled(motion.div)`
   display: flex;
@@ -55,15 +55,15 @@ export const ButtonContainerInner = styled(motion.div)`
   justify-content: center;
   inset: 0;
   height: 100%;
-`;
+`
 export const ButtonContainer = styled.button<{
-  disabled?: boolean;
-  $variant?: 'primary' | 'secondary' | 'tertiary';
+	disabled?: boolean
+	$variant?: "primary" | "secondary" | "tertiary"
 }>`
 
   ${({ disabled }) =>
-    disabled &&
-    css`
+		disabled &&
+		css`
       cursor: not-allowed;
       pointer-events: none;
       ${InnerContainer} {
@@ -72,8 +72,8 @@ export const ButtonContainer = styled.button<{
     `}
 
   ${({ $variant }) => {
-    if ($variant === 'primary') {
-      return css`
+		if ($variant === "primary") {
+			return css`
         --color: var(--ck-primary-button-color, var(--ck-body-color));
         --background: var(
           --ck-primary-button-background,
@@ -100,9 +100,9 @@ export const ButtonContainer = styled.button<{
           --ck-primary-button-font-weight,
           var(--font-weight)
         );
-      `;
-    } else if ($variant === 'secondary') {
-      return css`
+      `
+		} else if ($variant === "secondary") {
+			return css`
         --color: var(--ck-secondary-button-color, var(--ck-body-color));
         --background: var(
           --ck-secondary-button-background,
@@ -129,9 +129,9 @@ export const ButtonContainer = styled.button<{
           --ck-secondary-button-font-weight,
           var(--font-weight)
         );
-      `;
-    } else if ($variant === 'tertiary') {
-      return css`
+      `
+		} else if ($variant === "tertiary") {
+			return css`
         --color: var(
           --ck-tertiary-button-color,
           var(--ck-secondary-button-color)
@@ -173,9 +173,9 @@ export const ButtonContainer = styled.button<{
           --ck-tertiary-button-font-weight,
           var(--ck-secondary-button-font-weight)
         );
-      `;
-    }
-  }}
+      `
+		}
+	}}
 
   appearance: none;
   cursor: pointer;
@@ -250,7 +250,7 @@ export const ButtonContainer = styled.button<{
     &:active {
     }
   }
-`;
+`
 
 export const InnerContainer = styled.div`
   transform: translateZ(0); // Shifting fix
@@ -263,7 +263,7 @@ export const InnerContainer = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   */
-`;
+`
 
 export const IconContainer = styled(motion.div)<{ $rounded?: boolean }>`
   position: relative;
@@ -279,18 +279,18 @@ export const IconContainer = styled(motion.div)<{ $rounded?: boolean }>`
     margin-right: 0;
   }
   ${(props) => {
-    return (
-      props.$rounded &&
-      css`
+		return (
+			props.$rounded &&
+			css`
         overflow: hidden;
         border-radius: 5px;
       `
-    );
-  }}
+		)
+	}}
   svg {
     display: block;
     position: relative;
     max-width: 100%;
     height: auto;
   }
-`;
+`

@@ -1,3 +1,3 @@
 export default {
-  mobileWidth: 560,
-};
+	mobileWidth: 560,
+}

@@ -1,8 +1,8 @@
-import { css } from 'styled-components';
-import styled from './../../../styles/styled';
-import { motion } from 'framer-motion';
+import { css } from "styled-components"
+import styled from "./../../../styles/styled"
+import { motion } from "framer-motion"
 
-import { CopyToClipboardIcon as Icon } from '../../../assets/icons';
+import { CopyToClipboardIcon as Icon } from "../../../assets/icons"
 
 const IconContainer = styled(motion.div)<{ $clipboard?: boolean }>`
   transition: all 220ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -34,8 +34,8 @@ const IconContainer = styled(motion.div)<{ $clipboard?: boolean }>`
     transform: translate(11.75px, 10px) rotate(90deg) scale(0.6);
   }
   ${(props) =>
-    props.$clipboard
-      ? css`
+		props.$clipboard
+			? css`
           --color: var(--ck-focus-color) !important;
           --bg: var(--ck-body-background);
           svg {
@@ -56,28 +56,28 @@ const IconContainer = styled(motion.div)<{ $clipboard?: boolean }>`
             }
           }
         `
-      : css`
+			: css`
           &:hover {
           }
           &:hover:active {
           }
         `}
-`;
+`
 
 const CopyToClipboardIcon = ({
-  copied,
-  small,
+	copied,
+	small,
 }: {
-  copied?: boolean;
-  small?: boolean;
+	copied?: boolean
+	small?: boolean
 }) => (
-  <IconContainer $clipboard={copied}>
-    <Icon
-      style={{
-        transform: small ? 'scale(1)' : 'translateX(3px) scale(1.5)',
-        opacity: small || copied ? 1 : 0.3,
-      }}
-    />
-  </IconContainer>
-);
-export default CopyToClipboardIcon;
+	<IconContainer $clipboard={copied}>
+		<Icon
+			style={{
+				transform: small ? "scale(1)" : "translateX(3px) scale(1.5)",
+				opacity: small || copied ? 1 : 0.3,
+			}}
+		/>
+	</IconContainer>
+)
+export default CopyToClipboardIcon

@@ -1,13 +1,13 @@
-import styled from './../../../styles/styled';
-import { keyframes } from 'styled-components';
+import styled from "./../../../styles/styled"
+import { keyframes } from "styled-components"
 
-import { motion } from 'framer-motion';
-import { ModalBody } from '../../Common/Modal/styles';
+import { motion } from "framer-motion"
+import { ModalBody } from "../../Common/Modal/styles"
 
 const Shimmer = keyframes`
   0%{ transform: translate(-100%) rotate(-45deg); }
   100%{ transform: translate(100%) rotate(-80deg); }
-`;
+`
 
 export const InfoBox = styled.div`
   padding: 24px 24px 28px;
@@ -17,7 +17,7 @@ export const InfoBox = styled.div`
   ${ModalBody} {
     max-width: none;
   }
-`;
+`
 export const InfoBoxButtons = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -25,11 +25,11 @@ export const InfoBoxButtons = styled.div`
   margin: 5px -8px -12px;
   button {
   }
-`;
+`
 export const LearnMoreContainer = styled(motion.div)`
   text-align: center;
   margin-bottom: -6px;
-`;
+`
 export const LearnMoreButton = styled(motion.button)`
   appearance: none;
   user-select: none;
@@ -81,14 +81,14 @@ export const LearnMoreButton = styled(motion.button)`
   &:active {
     transform: scale(0.96);
   }
-`;
+`
 
 export const ConnectorsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 0 0 16px;
-`;
+`
 
 export const ConnectorButton = styled(motion.button)`
   cursor: pointer;
@@ -182,7 +182,7 @@ export const ConnectorButton = styled(motion.button)`
       --bg: var(--active-background, var(--background));
     }
   }
-`;
+`
 export const ConnectorRecentlyUsed = styled(motion.span)`
   position: relative;
   top: var(--ck-recent-badge-top-offset, 0.5px);
@@ -227,7 +227,7 @@ export const ConnectorRecentlyUsed = styled(motion.span)`
     );
     animation: ${Shimmer} 2s linear infinite;
   }
-`;
+`
 
 export const ConnectorLabel = styled(motion.span)`
   display: flex;
@@ -239,7 +239,7 @@ export const ConnectorLabel = styled(motion.span)`
   text-overflow: ellipsis;
   padding: 2px 0;
   padding-right: 38px;
-`;
+`
 
 export const ConnectorIcon = styled(motion.div)`
   position: absolute;
@@ -252,7 +252,7 @@ export const ConnectorIcon = styled(motion.div)`
     width: 100%;
     height: 100%;
   }
-`;
+`
 export const MobileConnectorsContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
@@ -260,7 +260,7 @@ export const MobileConnectorsContainer = styled(motion.div)`
   justify-content: space-between;
   padding: 14px 0 28px;
   margin: 0 0;
-`;
+`
 
 export const MobileConnectorButton = styled(motion.button)`
   --background: var(--ck-body-background-secondary);
@@ -288,7 +288,7 @@ export const MobileConnectorButton = styled(motion.button)`
       transform: scale(0.97);
     }
   }
-`;
+`
 
 export const MobileConnectorLabel = styled(motion.span)`
   display: block;
@@ -298,7 +298,7 @@ export const MobileConnectorLabel = styled(motion.span)`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-`;
+`
 
 export const MobileConnectorIcon = styled(motion.div)`
   margin: 0 auto;
@@ -313,4 +313,4 @@ export const MobileConnectorIcon = styled(motion.div)`
     width: 100%;
     height: 100%;
   }
-`;
+`
