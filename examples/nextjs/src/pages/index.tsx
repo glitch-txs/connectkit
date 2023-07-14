@@ -2,10 +2,14 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { ConnectKitButton } from 'ronin-connectkit';
+import { useConnect } from 'wagmi';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const { error } = useConnect()
+  
   return (
     <>
       <Head>
@@ -17,6 +21,8 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
           <ConnectKitButton />
+          <br/>
+      {error && <div>{error.message}</div>}
         </div>
       </main>
     </>
