@@ -28,14 +28,12 @@ type DefaultConfigProps = {
   autoConnect?: boolean;
   alchemyId?: string;
   infuraId?: string;
-  chains?: Chain[];
+  chains: Chain[];
   connectors: any;
   publicClient?: any;
   webSocketPublicClient?: any;
   enableWebSocketPublicClient?: boolean;
   stallTimeout?: number;
-  /* WC 2.0 requires a project ID (get one here: https://cloud.walletconnect.com/sign-in) */
-  walletConnectProjectId: string;
 };
 
 type ConnectKitClientProps = {
@@ -49,7 +47,7 @@ const defaultConfig = ({
   autoConnect = true,
   appName = 'ConnectKit',
   appIcon,
-  chains = defaultChains,
+  chains,
   alchemyId,
   infuraId,
   connectors,
