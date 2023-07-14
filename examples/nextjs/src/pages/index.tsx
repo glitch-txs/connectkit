@@ -1,14 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { ConnectKitButton } from 'ronin-connectkit';
-import { useConnect } from 'wagmi';
+import { ConnectKitButton } from 'ronin-connectkit' 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
-  const { error } = useConnect()
   
   return (
     <>
@@ -19,11 +16,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-          <ConnectKitButton />
-          <br/>
-      {error && <div>{error.message}</div>}
-        </div>
+        <h1>Make sure to be connected on Saigon Testnet</h1>
+        <ConnectKitButton />
       </main>
     </>
   )
