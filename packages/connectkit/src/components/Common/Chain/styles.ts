@@ -36,7 +36,7 @@ export const ChainContainer = styled.div<ChainContainerProps>`
   min-width: var(--width);
   min-height: var(--height);
   border-radius: var(--radius);
-  background: var(--ck-body-background-secondary);
+  background: #004de5;
   pointer-events: none;
   user-select: none;
   svg {
@@ -61,6 +61,7 @@ export const LogoContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top:4px;
   svg {
     display: block;
     width: 100%;

@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import Logos from "./../assets/logos"
+import { Ronin } from "./../assets/logos"
 
 let supportedConnectors: {
 	id: string
@@ -34,14 +34,14 @@ if (typeof window !== "undefined") {
 			name: "Ronin Wallet",
 			shortName: "Ronin",
 			logos: {
-				default: <Logos.WalletConnect />,
-				mobile: <Logos.WalletConnect background />,
-				transparent: <Logos.WalletConnect background={false} />,
-				appIcon: <Logos.WalletConnect background={false} />,
-				connectorButton: <Logos.WalletConnect background={true} />,
-				qrCode: <Logos.WalletConnect background={true} />,
+				default: <Ronin  />,
+				mobile: <Ronin background />,
+				transparent: <Ronin background={false} />,
+				appIcon: <Ronin background={false} />,
+				connectorButton: <Ronin background={true} />,
+				qrCode: <Ronin background={true} style={{ transform:'scale(0.8)' }}/>,
 			},
-			logoBackground: "var(--ck-brand-coinbaseWallet)",
+			logoBackground: "#004de5",
 			scannable: true,
 			//defaultConnect: () => {},
 			extensions: {

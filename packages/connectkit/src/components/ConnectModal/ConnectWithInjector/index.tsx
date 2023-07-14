@@ -8,6 +8,7 @@ import {
 	RetryIconContainer,
 	Content,
 } from "./styles"
+import { Ronin } from '../../../assets/logos'
 
 import supportedConnectors from "../../../constants/supportedConnectors"
 
@@ -344,9 +345,7 @@ const ConnectWithInjector: React.FC<{
 									>
 										{connector.logos.transparent ?? connector.logos.default}
 									</div>
-								) : (
-									<>{connector.logos.transparent ?? connector.logos.default}</>
-								)
+								) : (<Ronin style={{ padding: '10px 0 0 0' }} />)
 							}
 							smallLogo={connector.id === "injected"}
 							connecting={status === states.CONNECTING}

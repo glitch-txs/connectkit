@@ -15,7 +15,10 @@ export const SwitchNetworksContainer = styled.div`
 `
 
 export const ChainIcon = styled(motion.div)<{ $empty?: boolean }>`
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0 0 0;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -23,7 +26,7 @@ export const ChainIcon = styled(motion.div)<{ $empty?: boolean }>`
   height: 24px;
   min-width: 24px;
   min-height: 24px;
-  background: var(--ck-body-background);
+  background: #004de5;
   svg {
     border-radius: inherit;
     display: block;

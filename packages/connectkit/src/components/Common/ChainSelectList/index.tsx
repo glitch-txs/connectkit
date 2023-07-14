@@ -19,7 +19,7 @@ import Alert from "../Alert"
 import { AnimatePresence, motion } from "framer-motion"
 import { isCoinbaseWalletConnector, isMobile } from "../../../utils"
 
-import ChainIcons from "../../../assets/chains"
+import { Ronin } from "../../../assets/logos"
 import useLocales from "../../../hooks/useLocales"
 
 const Spinner = (
@@ -139,7 +139,7 @@ const ChainSelectList = ({
 											</motion.div>
 										</ChainLogoSpinner>
 										<ChainIcon>
-											{ch.logo ?? <ChainIcons.UnknownChain />}
+											<Ronin style={{ transform:'scale(0.7)' }} />
 										</ChainIcon>
 									</ChainLogoContainer>
 									{ch.name}

@@ -41,6 +41,10 @@ function CustomQRCode({
 							style={{
 								background:
 									imagePosition === "center" ? imageBackground : undefined,
+									display:'flex',
+									alignItems:'center',
+									justifyContent:'center',
+									paddingTop:'10px'
 							}}
 						>
 							{Logo}

@@ -1,17 +1,17 @@
 import { ReactNode } from "react"
-import Logos from "./../assets/chains"
+import { Ronin } from "./../assets/chains"
 
 type Chain = { id: number; name: string; logo: ReactNode }
 const supportedChains: Chain[] = [
 	{
 		id: 2020,
 		name: "Ronin Network",
-		logo: <Logos.Ethereum />,
+		logo: <Ronin />,
 	},
 	{
 		id: 2021,
 		name: "Saigon Testnet",
-		logo: <Logos.Ethereum testnet />,
+		logo: <Ronin testnet />,
 	},
 ]
 

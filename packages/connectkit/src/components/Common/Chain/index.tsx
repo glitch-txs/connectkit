@@ -8,7 +8,7 @@ import {
 } from "./styles"
 import { AnimatePresence } from "framer-motion"
 import supportedChains from "../../../constants/supportedChains"
-import Chains from "../../../assets/chains"
+import { Ronin } from "../../../assets/logos"
 
 const Spinner = (
 	<svg
@@ -93,7 +93,7 @@ const Chain: React.FC<{
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.3 }}
 					>
-						{chain?.logo ?? <Chains.UnknownChain />}
+					<Ronin style={{ transform:'scale(0.7)' }} />
 					</LogoContainer>
 				) : (
 					<LoadingContainer

@@ -1,5 +1,5 @@
 import React, { useMemo } from "react"
-import Logos from "../assets/logos"
+import { Ronin } from "../assets/logos"
 
 import { useContext } from "../components/ConnectKit"
 
@@ -20,6 +20,7 @@ export default function useLocales(replacements?: any) {
 
 	const translated: any = {}
 	Object.keys(translations).map((key) => {
+		//@ts-ignore
 		const string = translations[key]
 		return (translated[key] = localize(string, replacements))
 	})
@@ -73,7 +74,7 @@ const wrapTags = (text: string) => {
 				if (s === "[WALLETCONNECTLOGO]") {
 					return (
 						<span key={s} className="ck-tt-logo">
-							<Logos.WalletConnect />
+							<Ronin />
 						</span>
 					)
 				}
