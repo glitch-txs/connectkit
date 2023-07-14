@@ -17,11 +17,11 @@ let supportedConnectors: {
 	scannable?: boolean
 	extensions?: { [key: string]: string }
 	appUrls?: { [key: string]: string }
-	extensionIsInstalled?: () => boolean,
+	extensionIsInstalled?: () => boolean
 	defaultConnect: boolean
 }[] = []
 
-if (typeof window != "undefined") {
+if (typeof window !== "undefined") {
 	const { ronin } = window
 
 	interface IDictionary {
@@ -60,7 +60,7 @@ if (typeof window != "undefined") {
 			extensionIsInstalled: () => {
 				return Boolean(ronin)
 			},
-			defaultConnect: false
+			defaultConnect: false,
 		},
 	]
 }

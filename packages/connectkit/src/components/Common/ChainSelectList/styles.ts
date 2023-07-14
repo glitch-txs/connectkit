@@ -176,7 +176,7 @@ export const ChainButton = styled(motion.button)<{
       opacity: 1;
     }
   }
-  ${(props : CSSProps) =>
+  ${(props: CSSProps) =>
 		props.$variant === "secondary" &&
 		css`
       padding: 12px 4px;

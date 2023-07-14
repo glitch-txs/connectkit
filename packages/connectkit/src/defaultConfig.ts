@@ -83,7 +83,8 @@ const defaultConfig = ({
 		connectors,
 		publicClient: (publicClient ?? configuredPublicClient) as PublicClient,
 		webSocketPublicClient: enableWebSocketPublicClient // Removed by default, breaks if used in Next.js – "unhandledRejection: Error: could not detect network"
-			? (webSocketPublicClient ?? configuredWebSocketPublicClient) as WebSocketPublicClient
+			? ((webSocketPublicClient ??
+					configuredWebSocketPublicClient) as WebSocketPublicClient)
 			: undefined,
 	}
 

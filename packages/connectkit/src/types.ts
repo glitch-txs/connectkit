@@ -3,11 +3,13 @@ import { Languages as Lang } from "./localizations"
 export type Languages = Lang
 
 export type CSSProps = {
-  [key: string]: string | {
-		[key: string]: string 
-	},
-	$customTheme:{
-		[key: string]: string 
+	[key: string]:
+		| string
+		| {
+				[key: string]: string
+		  }
+	$customTheme: {
+		[key: string]: string
 	}
 }
 

@@ -267,7 +267,9 @@ export const ResetContainer = styled(motion.div)<{
 		if (
 			props.$customTheme &&
 			props.$customTheme["--ck-accent-color"] &&
-			["light", "dark", "auto", "", undefined].includes(props.$useTheme as string)
+			["light", "dark", "auto", "", undefined].includes(
+				props.$useTheme as string,
+			)
 		) {
 			const accentColor = props.$customTheme["--ck-accent-color"]
 			const accentTextColor =

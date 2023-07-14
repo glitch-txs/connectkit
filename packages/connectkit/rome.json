@@ -6,7 +6,31 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"suspicious":{
+				"noExplicitAny": "off",
+				"noRedeclare":"off",
+				"noAssignInExpressions":"off",
+				"noArrayIndexKey":"off"
+			},
+			"complexity":{
+				"noExtraBooleanCast":"off",
+				"useOptionalChain":"off"
+			},
+			"style":{
+				"useConst":"off",
+				"noUnusedTemplateLiteral":"off",
+				"noParameterAssign":"off",
+				"noInferrableTypes":"off",
+				"useTemplate":"off",
+				"noVar":"off",
+				"useSingleVarDeclarator":"off",
+				"noNonNullAssertion":"off",
+				"useSelfClosingElements":"off"			
+			},
+			"a11y":{
+				"noSvgWithoutTitle":"off",
+				"useKeyWithClickEvents":"off"
+			}
 		}
 	},
 	"javascript": {
