@@ -44,7 +44,7 @@ const ptBR: LocaleProps = {
 	onboardingScreen_h1: `Comece a explorar a Web3`,
 	onboardingScreen_p: `Sua carteira é a porta de entrada para todas as coisas Ethereum, a tecnologia mágica que torna possível explorar a web3.`,
 	onboardingScreen_ctaText: `Escolha sua primeira carteira`,
-	onboardingScreen_ctaUrl: `https://ethereum.org/pt-br/wallets/find-wallet/`,
+	onboardingScreen_ctaUrl: `https://wallet.roninchain.com/`,
 
 	aboutScreen_heading: `Sobre as carteiras`,
 	aboutScreen_a_h1: `Para seus ativos digitais`,
@@ -54,7 +54,7 @@ const ptBR: LocaleProps = {
 	aboutScreen_c_h1: `Explore o mundo da Web3`,
 	aboutScreen_c_p: `Sua carteira é uma utilidade essencial que permite explorar e participar do mundo em rápida evolução da Web3.`,
 	aboutScreen_ctaText: `Saiba mais`,
-	aboutScreen_ctaUrl: `https://ethereum.org/pt-br/wallets/`,
+	aboutScreen_ctaUrl: `https://wallet.roninchain.com/`,
 
 	connectorsScreen_heading: `Conectar carteira`,
 	connectorsScreen_newcomer: `Eu não tenho uma carteira`,

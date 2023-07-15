@@ -43,7 +43,7 @@ const frFR: LocaleProps = {
 	onboardingScreen_h1: `Commencez à explorer le Web3`,
 	onboardingScreen_p: `Votre portefeuille est la porte d'entrée vers tout ce qui concerne l'Ethereum, la technologie magique qui permet d'explorer le Web3.`,
 	onboardingScreen_ctaText: `Choisissez votre premier portefeuille`,
-	onboardingScreen_ctaUrl: `https://ethereum.org/fr/wallets/find-wallet/`,
+	onboardingScreen_ctaUrl: `https://wallet.roninchain.com/`,
 
 	aboutScreen_heading: `À propos des portefeuilles`,
 	aboutScreen_a_h1: `Pour vos actifs numériques`,
@@ -53,7 +53,7 @@ const frFR: LocaleProps = {
 	aboutScreen_c_h1: `Explorez le monde du Web3`,
 	aboutScreen_c_p: `Votre portefeuille est un utilitaire essentiel qui vous permet d'explorer et de participer au monde en évolution rapide du Web3.`,
 	aboutScreen_ctaText: `En savoir plus`,
-	aboutScreen_ctaUrl: `https://ethereum.org/fr/wallets/`,
+	aboutScreen_ctaUrl: `https://wallet.roninchain.com/`,
 
 	connectorsScreen_heading: `Connectez le portefeuille`,
 	connectorsScreen_newcomer: `Je n’ai pas de portefeuille`,
