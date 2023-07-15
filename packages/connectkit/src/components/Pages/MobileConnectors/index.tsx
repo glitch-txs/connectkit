@@ -54,8 +54,8 @@ const MobileConnectors: React.FC = () => {
 			context.setConnector(wallet.id)
 		} else {
 			const uri = wallet.createUri?.(wcUri!)
-			if (uri) window.location.href = uri
-			//if (uri) window.open(uri, '_blank');
+			//if (uri) window.location.href = uri
+			if (uri) window.open(uri, '_blank');
 		}
 	}
 
