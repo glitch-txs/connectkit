@@ -18,7 +18,7 @@
     "next": "13.4.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ronin-connectkit": "^0.0.4",
+    "ronin-connectkit": "^0.0.5",
     "ronin-connector": "^0.0.7",
     "typescript": "5.1.6",
     "viem": "^1.2.14",
