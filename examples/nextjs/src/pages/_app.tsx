@@ -5,26 +5,26 @@ import { WagmiConfig, createConfig } from 'wagmi';
 import { ConnectKitProvider, getDefaultConfig } from 'ronin-connectkit';
 import { RoninConnector, saigon, ronin } from 'ronin-connector';
 
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID as string
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID as string;
 
 const config = createConfig(
   getDefaultConfig({
     appName: 'ConnectKit Next.js demo',
-    chains: [saigon],
-    connectors:[
+    chains: [saigon, ronin],
+    connectors: [
       new RoninConnector({
-        chains:[saigon],
-        options:{
+        chains: [saigon],
+        options: {
           projectId,
-          metadata:{
+          metadata: {
             name: 'wagmi',
             description: 'my wagmi app',
             url: 'https://wagmi.sh',
             icons: ['https://wagmi.sh/icon.png'],
           },
-        }
-      })
-    ]
+        },
+      }),
+    ],
   })
 );
 
