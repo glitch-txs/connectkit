@@ -13,7 +13,7 @@ const config = createConfig(
     chains: [saigon, ronin],
     connectors: [
       new RoninConnector({
-        chains: [saigon],
+        chains: [saigon, ronin],
         options: {
           projectId,
           metadata: {
